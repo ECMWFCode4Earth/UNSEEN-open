@@ -13,7 +13,7 @@ Best rendering on [GitHub Pages](https://esowc.github.io/UNSEEN-open/)
 ## What is UNSEEN?
 The UNprecedented Simulated Extreme ENsemble (UNSEEN, [Thompson et al., 2017](https://www.nature.com/articles/s41467-017-00275-3)) approach is an increasingly popular method that exploits seasonal prediction systems to  **assess and anticipate climate extremes beyond the observed record**. The approach uses pooled forecasts as plausible alternate realities. Instead of the &#39;single realization&#39; of reality, pooled forecasts can be exploited to better assess the likelihood of infrequent events, which only have a limited chance of occurring in observed records. This method has for example been used to improve design levels of storm-surges in the river Rhine and to anticipate and understand heatwaves in China.
 
-A limitation of the UNSEEN method is the big data crunching it requires and the limited accessibility of some of the forecasting systems used. Recently, we applied this method to SEAS5 for the first time, with promising results for extreme precipitation over Norway and Svalbard (submitted to _NPJ_ _Climate and Atmospheric Science_). SEAS5 is a good dataset for the UNSEEN approach because it is freely available and has a high resolution and a large ensemble compared to global climate models. To make this approach more accessible, we propose to make an open, reproducible and transferable workflow for the UNSEEN method using the open access SEAS5 dataset on the CDS.
+A limitation of the UNSEEN method is the big data crunching it requires and the limited accessibility of some of the forecasting systems used. Recently, we applied this method to SEAS5 for the first time, with promising results for extreme precipitation over Norway and Svalbard (submitted to [_NPJ_ _Climate and Atmospheric Science_](https://doi.org/10.31223/osf.io/hyxeq)). SEAS5 is a good dataset for the UNSEEN approach because it is freely available and has a high resolution and a large ensemble compared to global climate models. To make this approach more accessible, we propose to make an open, reproducible and transferable workflow for the UNSEEN method using the open access SEAS5 dataset on the CDS.
 
 SEAS5 is a huge dataset - for example, forecasts of just one variable (e.g. precipitation only surface level) on a daily and global scale can total to a few terabytes. The data size drastically reduces by using a spatial average monthly timeseries, and hence, we will start this project with a case study of spatial and monthly averaged precipitation. After successful application, there is room for expansion of the work.
 
@@ -23,11 +23,20 @@ February 2020 was the wettest February on record in the UK (since 1862), [accord
 ## The Workflow
 In this project, we will 1. [download and preprocess the data](Data_mining.md) 2. [evaluate the extremes](Evaluation.md) and 3. illustrate applications.
 
+Or jump straight into the [notebooks](https://nbviewer.jupyter.org/github/esowc/UNSEEN-open/tree/master/Notebooks/). 
+
 ## Todo / questions
+
+1. Download
 - [x] Create the GitHub page and share with collaborators
-- [ ] Explain how the data is downloaded and needs to be processed
-- [ ] 
+- [x] Download and preprocess SEAS5 data 
+- [x] Download and preprocess E-OBS
+- [ ] Extract country-averaged precipitation
+- [ ] Make reproducible, what do we want to develop? (CDS toolbox?)
 
-- [ ] We have a lot of example graphs and a GitHub with coding for evaluation we can show. However, this is for a paper that is submitted. How to go about this?
-
+2. Evaluate
+- [ ] Ensemble member independence
+- [ ] Model stability
+- [ ] Model fidelity
+- [ ] First using UK averaged time-series of February precipitation. Then grid-based? 
 
