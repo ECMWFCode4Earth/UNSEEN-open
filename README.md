@@ -23,16 +23,18 @@ February 2020 was the wettest February on record in the UK (since 1862), [accord
 ## The Workflow
 In this project, we will 1. [download and preprocess the data](Data_mining.md) 2. [evaluate the extremes](Evaluation.md) and 3. illustrate applications.
 
-Or jump straight into the [notebooks](https://nbviewer.jupyter.org/github/esowc/UNSEEN-open/tree/master/Notebooks/). 
+Or jump straight into the [workflow for February 2020 precipitation](https://nbviewer.jupyter.org/github/esowc/UNSEEN-open/tree/master/Notebooks/Workflow.ipynb). 
 
 ## Todo / questions
 
 1. Download
-- [x] Create the GitHub page and share with collaborators
-- [x] Download and preprocess SEAS5 data 
-- [x] Download and preprocess E-OBS
-- [ ] Extract country-averaged precipitation
-- [ ] Make reproducible, what do we want to develop? (CDS toolbox?)
+- [x] Set up CDS
+- [x] Retrieve SEAS5 and EOBS 
+  - [ ] Retrieve SEAS5 over Europe 
+- [x] Preprocess SEAS5 and EOBS
+- [x] Mask: Extract country-averaged precipitation
+  - [ ] Extract *weighted* country-averaged precipitation
+- [ ] Make reproducible, CDS toolbox?
 
 2. Evaluate
 - [ ] Ensemble member independence
@@ -40,3 +42,5 @@ Or jump straight into the [notebooks](https://nbviewer.jupyter.org/github/esowc/
 - [ ] Model fidelity
 - [ ] First using UK averaged time-series of February precipitation. Then grid-based? 
 
+### Issues
+- [ ] EOBS from CDS temporally unavailable
