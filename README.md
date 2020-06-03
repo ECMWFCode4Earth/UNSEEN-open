@@ -30,17 +30,22 @@ Or jump straight into the [workflow for February 2020 precipitation](https://nbv
 1. Download
 - [x] Set up CDS
 - [x] Retrieve SEAS5 and EOBS 
-  - [ ] Retrieve SEAS5 over Europe 
 - [x] Preprocess SEAS5 and EOBS
 - [x] Mask: Extract country-averaged precipitation
-  - [ ] Extract *weighted* country-averaged precipitation
-- [ ] Make reproducible, CDS toolbox?
 
 2. Evaluate
 - [ ] Ensemble member independence
 - [ ] Model stability
 - [ ] Model fidelity
-- [ ] First using UK averaged time-series of February precipitation. Then grid-based? 
+
+
+### Todo's is time allows
+- [ ] Retrieve SEAS5 over Europe
+    - [ ] Redo UK analysis for The Netherlands 
+- [ ] Provide example on the CDS toolbox
+- [ ] Spatial, grid-based analysis instead of area averaged time-series  
+- [ ] Extract *weighted* country-averaged precipitation. How does R extraction compare to python masking?
+- [ ] EOBS UK 2020 is not the highest. How does EOBS compare to MetOffice data? 
 
 ### Issues
 - [ ] EOBS from CDS temporally unavailable
