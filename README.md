@@ -39,7 +39,7 @@ Or jump straight into the [workflow for February 2020 precipitation](https://nbv
 - [ ] Model fidelity
 
 
-### Todo's is time allows
+### Todo's if time allows
 - [ ] Retrieve SEAS5 over Europe
     - [ ] Redo UK analysis for The Netherlands 
 - [ ] Provide example on the CDS toolbox
