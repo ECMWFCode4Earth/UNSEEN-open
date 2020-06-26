@@ -32,19 +32,21 @@ Or jump straight into the [workflow for February 2020 precipitation](https://nbv
 - [x] Retrieve SEAS5 and EOBS 
 - [x] Preprocess SEAS5 and EOBS
 - [x] Mask: Extract country-averaged precipitation
+- [ ] Package: Automated download and preprocess
 
 2. Evaluate
-- [ ] Ensemble member independence
-- [ ] Model stability
-- [ ] Model fidelity
-
-
-### Todo's if time allows
-- [ ] Retrieve SEAS5 over Europe
-    - [ ] Redo UK analysis for The Netherlands 
+- [x] Ensemble member independence
+- [x] Model stability
+- [x] Model fidelity
+- [ ] Write R package
+    - [ ] Separate Repo? 
+    
+### Potential research topics
+- [ ] Test robustness of the method to variable / regions / seasons
+    - [ ] Redo analysis for The Siberian heatwave (Jan - May, 65-120E, 50-70N)
+    - [ ] Redo UK analysis for the river Rhine (or The Netherlands) using winter total precipitation (or seasonal max daily) instead of February precipitation  
 - [ ] Provide example on the CDS toolbox
 - [ ] Spatial, grid-based analysis instead of area averaged time-series  
-- [ ] Extract *weighted* country-averaged precipitation. How does R extraction compare to python masking?
 - [ ] EOBS UK 2020 is not the highest. How does EOBS compare to MetOffice data? 
 
 ### Issues
