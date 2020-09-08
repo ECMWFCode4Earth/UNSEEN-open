@@ -8,16 +8,36 @@ import os
 
 c = cdsapi.Client()
 
-def get_init_months(target_month):
+def _get_init_months(target_month):
+    """A function that extracts the initialization months and lead times from the selected target months.
+        ----------
+        target_months : The month(s) of interest.
+            For example, for JJA, use [6,7,8]. 
+            Must be consecutive (e.g. no May, July, August).
+        Returns
+        -------
+        The year, initialization months and lead times for the selected target months.
+    """
     target = target_month if isinstance(target_month, list) else [target_month]
     init_list = [target[0] - x for x in range(1,7 - len(target))]
     init_months = [12 + i if i < 1 else i for i in init_list]
     leadtimes = [np.arange(x, x + len(target)) for x in range(2,8 - len(target))]
     return(init_months, leadtimes)
 
-def print_arguments(target_months):
+def print_arguments(target_months, years = np.arange(1981,1983)):
+    """A function that prints the year, initialization months and lead times for the selected target months.
+        ----------
+        target_months : The month(s) of interest.
+            For example, for JJA, use [6,7,8]. 
+            Must be consecutive (e.g. no May, July, August).
+        years : the years over which to print the initialization months and lead times.
+            Defaults to the first two years: 1981 and 1982. 
+        Returns
+        -------
+        Prints the year, initialization months and lead times for the selected target months.
+    """
     target_months = target_months if isinstance(target_months, list) else [target_months]
-    init_months, leadtimes = get_init_months(target_months)
+    init_months, leadtimes = _get_init_months(target_months)
     for j in range(2):  ##add if error still continue
         for i in range(len(init_months)):
             init_month = init_months[i]
@@ -33,7 +53,7 @@ def print_arguments(target_months):
                   ' leadtime_month = ' + str(leadtime_months))
 
 
-def retrieve_single(variables, year, init_month, leadtimes, area, folder):
+def _retrieve_single(variables, year, init_month, leadtimes, area, folder):
     """Retrieve SEAS5 data from CDS.
         
         Parameters
@@ -87,21 +107,21 @@ def retrieve_SEAS5(variables, target_months, area, folder, years=np.arange(1981,
         -------
         Saves the files in the specified folder.
     """
-    init_months, leadtimes = get_init_months(target_months)
+    init_months, leadtimes = _get_init_months(target_months)
     for j in range(len(years)):  ##add if error still continue
         for i in range(len(init_months)):
             init_month = init_months[i]
             leadtime_months = leadtimes[i]
             if 12 in init_months:
                 if init_month < 6:
-                    year = years[j]
+                    year = years[j] + 1
                 else:
-                    year = years[j] - 1
+                    year = years[j]
             else:
                 year = years[j]
 
             if not os.path.isfile(folder + str(year) + "%.2i" % init_month + '.nc'):
-                retrieve_single(variables=variables,
+                _retrieve_single(variables=variables,
                                 year=year,
                                 init_month=init_month,
                                 leadtimes=leadtime_months,
