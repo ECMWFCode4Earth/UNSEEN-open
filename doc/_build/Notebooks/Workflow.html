@@ -39,7 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Welcome to unseen_open’s documentation!" href="../index.html" /> 
+    <link rel="next" title="1. Retrieve" href="1.Download/1.Retrieve.html" />
+    <link rel="prev" title="What is UNSEEN?" href="../Whats-unseen.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,11 +85,39 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Introduction:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">UNSEEN-open</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Download">Download</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Preprocess">Preprocess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Whats-unseen.html">What is UNSEEN?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">UNSEEN-open</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Download">Download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Preprocess">Preprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Read-more">Read more</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">The workflow:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1.Download/1.Retrieve.html">1. Retrieve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.Download/1.Retrieve.html#Use-xarray-to-visualize-the-netcdf-file">Use xarray to visualize the netcdf file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.Download/1.Retrieve.html#Download-all-data">Download all data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.Download/1.Retrieve.html#EOBS-data-download">EOBS data download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Preprocess/2.1Merge.html">1.3 Merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Preprocess/2.1Merge.html#Concatenate-SEAS5">Concatenate SEAS5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Preprocess/2.1Merge.html#EOBS">EOBS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Preprocess/2.2Mask.html">1.4 Masking: from grid to country-averaged timeseries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Preprocess/2.2Mask.html#Load-SEAS5-and-EOBS">Load SEAS5 and EOBS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Preprocess/2.2Mask.html#Masking">Masking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Preprocess/2.2Mask.html#Illustrate-the-SEAS5-and-EOBS-masks-for-the-UK">Illustrate the SEAS5 and EOBS masks for the UK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Preprocess/2.2Mask.html#Potential-improvements">Potential improvements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Preprocess/2.3Upscale.html">1.5 Upscaling EOBS then Masking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Preprocess/2.3Upscale.html#Load-SEAS5-and-EOBS">Load SEAS5 and EOBS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Preprocess/2.3Upscale.html#Masking">Masking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Preprocess/2.3Upscale.html#Illustrate-the-SEAS5-and-EOBS-masks-for-the-UK">Illustrate the SEAS5 and EOBS masks for the UK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.Preprocess/2.3Upscale.html#And-extract-the-spatial-average">And extract the spatial average</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.Evaluate/3.Evaluate.html">Evaluating the UNSEEN ensemble</a></li>
 </ul>
 
             
@@ -411,34 +440,17 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="UNSEEN-open">
 <h1>UNSEEN-open<a class="headerlink" href="#UNSEEN-open" title="Permalink to this headline">¶</a></h1>
-<p>In this project, the aim is to build an open, reproducible, and transferable workflow for UNSEEN – an increasingly popular method that exploits seasonal prediction systems to assess and anticipate climate extremes beyond the observed record. The approach uses pooled forecasts as plausible alternate realities. Instead of the ‘single realization’ of reality, pooled forecasts can be exploited to better assess the likelihood of infrequent events. We will illustrate the application for February 2020
-UK precipitation and the 2020 Siberian heatwave.</p>
+<p>In this project, the aim is to build an open, reproducible, and transferable workflow for UNSEEN. The workflow consists of four steps, as illustrated below:</p>
+<p><img alt="title" src="../_images/Workflow.png" /></p>
+<p>In this project, UNSEEN-open is applied to assess two extreme events in 2020: February 2020 UK precipitation and the 2020 Siberian heatwave.</p>
 <p>February average precipitation was the highest on record in the UK: with what frequency of occurrence can February extreme precipitation events such as the 2020 event be expected?</p>
 <p>The Siberian heatwave has broken the records as well. Could such an event be anticipation with UNSEEN? And to what extend can we expect changes in the frequency of occurrence and magnitude of these kind of events?</p>
-<p><img alt="title" src="Notebooks/../graphs/Workflow.png" /></p>
-<ul class="simple">
-<li><p><strong>Download</strong></p>
-<ul>
-<li><p><a class="reference internal" href="1.Download/1.Retrieve.html"><span class="doc">1. Retrieve</span></a></p></li>
-</ul>
-</li>
-<li><p><strong>Pre-process</strong></p>
-<ul>
-<li><p><a class="reference internal" href="2.Preprocess/2.1Merge.html"><span class="doc">2.1 Merge</span></a></p></li>
-<li><p><a class="reference internal" href="2.Preprocess/2.2Mask.html"><span class="doc">2.2 Mask</span></a></p></li>
-<li><p><a class="reference internal" href="2.Preprocess/2.3Upscale.html"><span class="doc">2.3 Upscale</span></a></p></li>
-</ul>
-</li>
-<li><p><strong>Evaluate</strong></p>
-<ul>
-<li><p><a class="reference internal" href="3.Evaluate/3.Evaluate.html"><span class="doc">3. Evaluate</span></a></p></li>
-</ul>
-</li>
-<li><p><strong>Illustrate</strong></p></li>
-</ul>
-</div>
+<div class="section" id="Overview">
+<h2>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h2>
+<p>Here we provide an overview of the steps taken to apply UNSEEN-open.</p>
 <div class="section" id="Download">
-<h1>Download<a class="headerlink" href="#Download" title="Permalink to this headline">¶</a></h1>
+<h3>Download<a class="headerlink" href="#Download" title="Permalink to this headline">¶</a></h3>
+<p>We want to download February precipitation over the UK and March-May average temperature over Siberia. We retrieve all SEAS5 seasonal forecasts that are forecasting the target months (i.e. February and MAM) and we retrieve ERA5 reanalysis for the same regions and variables for evaluation.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -459,7 +471,6 @@ UK precipitation and the 2020 Siberian heatwave.</p>
 </pre></div>
 </div>
 </div>
-<p>We retrieve all SEAS5 seasonal forecasts that are forecasting the target months.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -480,7 +491,6 @@ UK precipitation and the 2020 Siberian heatwave.</p>
 </pre></div>
 </div>
 </div>
-<p>And we retrieve ERA5 reanalysis for the same regions and variables:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -503,7 +513,7 @@ UK precipitation and the 2020 Siberian heatwave.</p>
 </div>
 </div>
 <div class="section" id="Preprocess">
-<h1>Preprocess<a class="headerlink" href="#Preprocess" title="Permalink to this headline">¶</a></h1>
+<h3>Preprocess<a class="headerlink" href="#Preprocess" title="Permalink to this headline">¶</a></h3>
 <p>In the preprocessing step, we first merge all downloaded files into one netcdf file. Then the rest of the preprocessing depends on the definition of the extreme event. For example, for the UK case study, we want to extract the UK average precipitation while for the Siberian heatwave we will just used the defined area to spatially average over. For the MAM season, we still need to take the seasonal average, while for the UK we already have the average February precipitation.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -1649,6 +1659,24 @@ dl.xr-attrs {
 </div>
 </div>
 </div>
+<div class="section" id="Read-more">
+<h3>Read more<a class="headerlink" href="#Read-more" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Jump into the respective sections for more detail: - <strong>Download</strong> - <a class="reference internal" href="1.Download/1.Retrieve.html"><span class="doc">1. Retrieve</span></a> - <strong>Pre-process</strong> - <a class="reference internal" href="2.Preprocess/2.1Merge.html"><span class="doc">2.1 Merge</span></a></div>
+<div class="line">- <a class="reference internal" href="2.Preprocess/2.2Mask.html"><span class="doc">2.2 Mask</span></a> - <a class="reference internal" href="2.Preprocess/2.3Upscale.html"><span class="doc">2.3 Upscale</span></a> - <strong>Evaluate</strong> - <a class="reference internal" href="3.Evaluate/3.Evaluate.html"><span class="doc">3. Evaluate</span></a> - <strong>Illustrate</strong></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -1658,8 +1686,10 @@ dl.xr-attrs {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="1.Download/1.Retrieve.html" class="btn btn-neutral float-right" title="1. Retrieve" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to unseen_open’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="../Whats-unseen.html" class="btn btn-neutral float-left" title="What is UNSEEN?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

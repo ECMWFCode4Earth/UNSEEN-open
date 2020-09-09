@@ -8,15 +8,19 @@ Welcome to unseen_open's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Introduction:
    
+   Whats-unseen
    Notebooks/Workflow
+   
+.. toctree::
+   :maxdepth: 1
+   :caption: The workflow:
+   
+   Notebooks/1.Download/1.Retrieve
+   Notebooks/2.Preprocess/2.1Merge
+   Notebooks/2.Preprocess/2.2Mask
+   Notebooks/2.Preprocess/2.3Upscale
+   Notebooks/3.Evaluate/3.Evaluate
+   
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
