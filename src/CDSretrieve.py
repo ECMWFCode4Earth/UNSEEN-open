@@ -8,6 +8,10 @@ import os
 
 c = cdsapi.Client()
 
+def _checkConsecutive(l): 
+    return l == list(range(min(l), max(l)+1)) 
+
+
 def _get_init_months(target_month):
     """A function that extracts the initialization months and lead times from the selected target months.
         ----------
@@ -36,21 +40,47 @@ def print_arguments(target_months, years = np.arange(1981,1983)):
         -------
         Prints the year, initialization months and lead times for the selected target months.
     """
-    target_months = target_months if isinstance(target_months, list) else [target_months]
+    if isinstance(target_months, list):
+        if not _checkConsecutive(target_months):
+            raise ValueError(f' target months "{target_months}" are not consecutive')
     init_months, leadtimes = _get_init_months(target_months)
-    for j in range(2):  ##add if error still continue
-        for i in range(len(init_months)):
-            init_month = init_months[i]
-            leadtime_months = leadtimes[i]
-            if 12 in init_months:
+    init_months_str = ''.join(str(a) for a in init_months)
+    if '112' in init_months_str: ## This means that we are crossing years - both January and December initializations are used. 
+        for j in range(len(years)-1): 
+            for i in range(len(init_months)):
+                init_month = init_months[i]
+                leadtime_months = leadtimes[i]
                 if init_month < 6:
                     year = years[j] + 1
                 else:
                     year = years[j]
-            else:
-                year = years[j]
-            print('year = ' + str(year) + ' init_month = ' + str(init_month) +
+                    
+                print('year = ' + str(year) + ' init_month = ' + str(init_month) +
                   ' leadtime_month = ' + str(leadtime_months))
+    else:
+        for j in range(len(years)): 
+            for i in range(len(init_months)):
+                init_month = init_months[i]
+                leadtime_months = leadtimes[i]
+                year = years[j]
+                print('year = ' + str(year) + ' init_month = ' + str(init_month) +
+                  ' leadtime_month = ' + str(leadtime_months))
+
+#     target_months = target_months if isinstance(target_months, list) else [target_months]
+#     init_months, leadtimes = _get_init_months(target_months)
+#     for j in range(2):  ##add if error still continue
+#         for i in range(len(init_months)):
+#             init_month = init_months[i]
+#             leadtime_months = leadtimes[i]
+#             if 12 in init_months:
+#                 if init_month < 6:
+#                     year = years[j] + 1
+#                 else:
+#                     year = years[j]
+#             else:
+#                 year = years[j]
+#             print('year = ' + str(year) + ' init_month = ' + str(init_month) +
+#                   ' leadtime_month = ' + str(leadtime_months))
 
 
 def _retrieve_single(variables, year, init_month, leadtimes, area, folder):
@@ -89,7 +119,7 @@ def _retrieve_single(variables, year, init_month, leadtimes, area, folder):
         folder + str(year) + "%.2i" % init_month + '.nc')
     
     
-def retrieve_SEAS5(variables, target_months, area, folder, years=np.arange(1981, 2017)):
+def retrieve_SEAS5(variables, target_months, area, folder, years=np.arange(1981, 2017)): # operational SEAS5 until 2021 
     """Retrieve SEAS5 data from CDS.
         
         Parameters
@@ -107,26 +137,42 @@ def retrieve_SEAS5(variables, target_months, area, folder, years=np.arange(1981,
         -------
         Saves the files in the specified folder.
     """
+    if isinstance(target_months, list):
+        if not _checkConsecutive(target_months):
+            raise ValueError(f' target months "{target_months}" are not consecutive')
     init_months, leadtimes = _get_init_months(target_months)
-    for j in range(len(years)):  ##add if error still continue
-        for i in range(len(init_months)):
-            init_month = init_months[i]
-            leadtime_months = leadtimes[i]
-            if 12 in init_months:
+    init_months_str = ''.join(str(a) for a in init_months)
+    if '112' in init_months_str: ## This means that we are crossing years - both January and December initializations are used. 
+        for j in range(len(years)-1): 
+            for i in range(len(init_months)):
+                init_month = init_months[i]
+                leadtime_months = leadtimes[i]
                 if init_month < 6:
                     year = years[j] + 1
                 else:
                     year = years[j]
-            else:
+                    
+                if not os.path.isfile(folder + str(year) + "%.2i" % init_month + '.nc'):
+                    _retrieve_single(variables=variables,
+                                     year=year,
+                                     init_month=init_month,
+                                     leadtimes=leadtime_months,
+                                     area = area,
+                                     folder=folder)
+    else:
+        for j in range(len(years)): 
+            for i in range(len(init_months)):
+                init_month = init_months[i]
+                leadtime_months = leadtimes[i]
                 year = years[j]
 
-            if not os.path.isfile(folder + str(year) + "%.2i" % init_month + '.nc'):
-                _retrieve_single(variables=variables,
-                                year=year,
-                                init_month=init_month,
-                                leadtimes=leadtime_months,
-                                area = area,
-                                folder=folder)
+                if not os.path.isfile(folder + str(year) + "%.2i" % init_month + '.nc'):
+                    _retrieve_single(variables=variables,
+                                    year=year,
+                                    init_month=init_month,
+                                    leadtimes=leadtime_months,
+                                    area = area,
+                                    folder=folder)
 
 def retrieve_ERA5(variables,
                   folder,
