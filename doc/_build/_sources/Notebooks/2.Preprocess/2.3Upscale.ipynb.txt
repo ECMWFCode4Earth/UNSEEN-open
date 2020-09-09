@@ -4,8 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## 1.5 Upscaling EOBS then Masking\n",
-    "\n",
+    "## Upscaling\n",
     "\n",
     "This notebook builds onto [1.4 Masking](1.4Mask.ipynb), by upscaling EOBS to the SEAS5 grid. We regrid EOBS to the SEAS5 grid so we can select the same grid cells in calculating the UK average for both datasets. The country outline would not be perfect, but the masks would be the same so the comparison would be fair. \n",
     "\n",
@@ -91,7 +90,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Load SEAS5 and EOBS\n"
+    "### Load SEAS5 and EOBS\n"
    ]
   },
   {
@@ -903,7 +902,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Masking\n",
+    "### Masking\n",
     "Here we load the countries and create a mask for SEAS5 and for EOBS. "
    ]
   },
@@ -911,7 +910,6 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Load countries\n",
     "Regionmask has predefined countries from [Natural Earth datasets](http://www.naturalearthdata.com) (shapefiles)."
    ]
   },
@@ -930,7 +928,6 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Create the mask\n",
     "Now we create the mask for the SEAS5 grid. Only one timestep is needed to create the mask. This mask will lateron be used to mask all the timesteps. "
    ]
   },
@@ -1345,8 +1342,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### EOBS\n",
-    "Now for EOBS, we want to upscale the dataset to the SEAS5 grid. We use the function `regridder(ds_in,ds_out,function)`, see the [docs](https://xesmf.readthedocs.io/en/latest/notebooks/Rectilinear_grid.html). We have to rename the lat lon dimensions so the function can read them. \n",
+    "### Upscale\n",
+    "For EOBS, we want to upscale the dataset to the SEAS5 grid. We use the function `regridder(ds_in,ds_out,function)`, see the [docs](https://xesmf.readthedocs.io/en/latest/notebooks/Rectilinear_grid.html). We have to rename the lat lon dimensions so the function can read them. \n",
     "\n",
     "We use bilinear interpolation first (i.e. function = 'bilinear'), because of its ease in implementation. However, the use of conservative areal average (function = 'conservative') for upscaling is preferred ([Kopparla, 2013](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2013GL057866)). "
    ]
@@ -1892,7 +1889,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Illustrate the SEAS5 and EOBS masks for the UK\n",
+    "### Illustrate the SEAS5 and EOBS masks for the UK\n",
     "\n",
     "Here I plot the masked mean SEAS5 and upscaled EOBS precipitation. This shows that upscaled EOBS does not contain data for all gridcells within the UK mask (the difference between SEAS5 gridcells and EOBS gridcells with data). We can apply an additional mask for SEAS5 that masks the grid cells that do not contain data in EOBS. "
    ]
@@ -2154,7 +2151,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## And extract the spatial average"
+    "### Extract the spatial average"
    ]
   },
   {

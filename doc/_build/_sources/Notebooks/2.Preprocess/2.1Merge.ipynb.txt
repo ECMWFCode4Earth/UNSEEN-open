@@ -4,7 +4,9 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## 1.3 Merge\n",
+    "# Preprocess\n",
+    "\n",
+    "## Merge\n",
     "\n",
     "In this notebook, we will create one netcdf file out of the 175 nc files retrieved from CDS. "
    ]
@@ -83,7 +85,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Concatenate SEAS5\n",
+    "### Concatenate SEAS5\n",
     "\n",
     "The SEAS5 data consists of 175 netcdf files that we downloaded from CDS ([1.2 Retrieve](reference)). We concatenate those into one netcdf file here. We create a netcdf file containing the dimensions lat, lon, number (25 ensembles), time (35 years) and leadtime (5 initialization months). To generate this, we loop over lead times, and open all 35 years of the lead time and then concatenate those leadtimes. \n"
    ]
@@ -1783,7 +1785,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## EOBS\n",
+    "### EOBS\n",
     "\n",
     "I tried to download EOBS through CDS, but the Product was temporally disabled for maintenance purposes ([1.2 Retrieve](reference)). As workaround, here, I downloaded EOBS (from 1950 - 2019) and the most recent EOBS data (2020) [here](https://surfobs.climate.copernicus.eu/dataaccess/access_eobs.php). Note, you have to register as E-OBS user.\n",
     "\n",

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1.5 Upscaling EOBS then Masking &mdash; unseen_open  documentation</title>
+  <title>Upscaling &mdash; unseen_open  documentation</title>
   
 
   
@@ -38,7 +38,9 @@
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Evaluate" href="../3.Evaluate/3.Evaluate.html" />
+    <link rel="prev" title="Masking" href="2.2Mask.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,11 +85,28 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Introduction:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Whats-unseen.html">What is UNSEEN?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Workflow.html">UNSEEN-open</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Workflow.html#Download">Download</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Workflow.html#Preprocess">Preprocess</a></li>
+</ul>
+<p class="caption"><span class="caption-text">The workflow:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1.Download/1.Retrieve.html">1. Retrieve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.1Merge.html">Preprocess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.2Mask.html">Masking</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Upscaling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Import-packages">Import packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Load-SEAS5-and-EOBS">Load SEAS5 and EOBS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Masking">Masking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Upscale">Upscale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Illustrate-the-SEAS5-and-EOBS-masks-for-the-UK">Illustrate the SEAS5 and EOBS masks for the UK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Extract-the-spatial-average">Extract the spatial average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Illustrate-the-SEAS5-and-EOBS-UK-average">Illustrate the SEAS5 and EOBS UK average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#And-save-the-UK-weighted-average-datasets">And save the UK weighted average datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../3.Evaluate/3.Evaluate.html">Evaluate</a></li>
 </ul>
 
             
@@ -134,7 +153,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>1.5 Upscaling EOBS then Masking</li>
+      <li>Upscaling</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -408,8 +427,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="1.5-Upscaling-EOBS-then-Masking">
-<h1>1.5 Upscaling EOBS then Masking<a class="headerlink" href="#1.5-Upscaling-EOBS-then-Masking" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Upscaling">
+<h1>Upscaling<a class="headerlink" href="#Upscaling" title="Permalink to this headline">¶</a></h1>
 <p>This notebook builds onto <a class="reference external" href="1.4Mask.ipynb">1.4 Masking</a>, by upscaling EOBS to the SEAS5 grid. We regrid EOBS to the SEAS5 grid so we can select the same grid cells in calculating the UK average for both datasets. The country outline would not be perfect, but the masks would be the same so the comparison would be fair.</p>
 <p>I use the <a class="reference external" href="https://xesmf.readthedocs.io/en/latest/">xesmf package</a> for upscaling, a good example can be found in this <a class="reference external" href="https://nbviewer.jupyter.org/github/geoschem/GEOSChem-python-tutorial/blob/master/Chapter03_regridding.ipynb">notebook</a>.</p>
 <div class="section" id="Import-packages">
@@ -477,9 +496,8 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 </div>
-</div>
 <div class="section" id="Load-SEAS5-and-EOBS">
-<h1>Load SEAS5 and EOBS<a class="headerlink" href="#Load-SEAS5-and-EOBS" title="Permalink to this headline">¶</a></h1>
+<h2>Load SEAS5 and EOBS<a class="headerlink" href="#Load-SEAS5-and-EOBS" title="Permalink to this headline">¶</a></h2>
 <p>From CDS, we retrieve SEAS5 in notebook <a class="reference external" href="1.2Retrieve.ipynb">1.2 Retrieve</a> and concatenate the retrieved files in notebook <a class="reference external" href="1.3Merge.ipynb">1.3 Merge</a>. We create a netcdf file containing the dimensions lat, lon, time (35 years), number (25 ensembles) and leadtime (5 initialization months).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -1240,10 +1258,8 @@ dl.xr-attrs {
 </div>
 </div>
 <div class="section" id="Masking">
-<h1>Masking<a class="headerlink" href="#Masking" title="Permalink to this headline">¶</a></h1>
+<h2>Masking<a class="headerlink" href="#Masking" title="Permalink to this headline">¶</a></h2>
 <p>Here we load the countries and create a mask for SEAS5 and for EOBS.</p>
-<div class="section" id="Load-countries">
-<h2>Load countries<a class="headerlink" href="#Load-countries" title="Permalink to this headline">¶</a></h2>
 <p>Regionmask has predefined countries from <a class="reference external" href="http://www.naturalearthdata.com">Natural Earth datasets</a> (shapefiles).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -1254,9 +1270,6 @@ dl.xr-attrs {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Create-the-mask">
-<h2>Create the mask<a class="headerlink" href="#Create-the-mask" title="Permalink to this headline">¶</a></h2>
 <p>Now we create the mask for the SEAS5 grid. Only one timestep is needed to create the mask. This mask will lateron be used to mask all the timesteps.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -1634,9 +1647,9 @@ dl.xr-attrs {
          1.,   2.], dtype=float32)</pre></li></ul></div></li><li class='xr-section-item'><input id='section-2b71fa72-39b6-431d-97b3-b40e35861afc' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-2b71fa72-39b6-431d-97b3-b40e35861afc' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div>
 </div>
 </div>
-<div class="section" id="EOBS">
-<h2>EOBS<a class="headerlink" href="#EOBS" title="Permalink to this headline">¶</a></h2>
-<p>Now for EOBS, we want to upscale the dataset to the SEAS5 grid. We use the function <code class="docutils literal notranslate"><span class="pre">regridder(ds_in,ds_out,function)</span></code>, see the <a class="reference external" href="https://xesmf.readthedocs.io/en/latest/notebooks/Rectilinear_grid.html">docs</a>. We have to rename the lat lon dimensions so the function can read them.</p>
+<div class="section" id="Upscale">
+<h2>Upscale<a class="headerlink" href="#Upscale" title="Permalink to this headline">¶</a></h2>
+<p>For EOBS, we want to upscale the dataset to the SEAS5 grid. We use the function <code class="docutils literal notranslate"><span class="pre">regridder(ds_in,ds_out,function)</span></code>, see the <a class="reference external" href="https://xesmf.readthedocs.io/en/latest/notebooks/Rectilinear_grid.html">docs</a>. We have to rename the lat lon dimensions so the function can read them.</p>
 <p>We use bilinear interpolation first (i.e. function = ‘bilinear’), because of its ease in implementation. However, the use of conservative areal average (function = ‘conservative’) for upscaling is preferred (<a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2013GL057866">Kopparla, 2013</a>).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -2147,9 +2160,8 @@ dl.xr-attrs {
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="Illustrate-the-SEAS5-and-EOBS-masks-for-the-UK">
-<h1>Illustrate the SEAS5 and EOBS masks for the UK<a class="headerlink" href="#Illustrate-the-SEAS5-and-EOBS-masks-for-the-UK" title="Permalink to this headline">¶</a></h1>
+<h2>Illustrate the SEAS5 and EOBS masks for the UK<a class="headerlink" href="#Illustrate-the-SEAS5-and-EOBS-masks-for-the-UK" title="Permalink to this headline">¶</a></h2>
 <p>Here I plot the masked mean SEAS5 and upscaled EOBS precipitation. This shows that upscaled EOBS does not contain data for all gridcells within the UK mask (the difference between SEAS5 gridcells and EOBS gridcells with data). We can apply an additional mask for SEAS5 that masks the grid cells that do not contain data in EOBS.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
@@ -2375,8 +2387,8 @@ Text(0.5, 1.0, &#39;EOBS&#39;)
 </div>
 </div>
 </div>
-<div class="section" id="And-extract-the-spatial-average">
-<h1>And extract the spatial average<a class="headerlink" href="#And-extract-the-spatial-average" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Extract-the-spatial-average">
+<h2>Extract the spatial average<a class="headerlink" href="#Extract-the-spatial-average" title="Permalink to this headline">¶</a></h2>
 <p>And now we can extract the UK averaged precipitation within SEAS5 by using the mask index of the UK: <code class="docutils literal notranslate"><span class="pre">where(SEAS5_mask</span> <span class="pre">==</span> <span class="pre">UK_index)</span></code>. So we need to find the index of one of the 241 abbreviations. In this case for the UK use ‘GB’. Additionally, if you can’t find a country, use <code class="docutils literal notranslate"><span class="pre">countries.regions</span></code> to get the full names of the countries.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -3267,6 +3279,7 @@ dl.xr-attrs {
 </div>
 <div class="output_area docutils container">
 <img alt="../../_images/Notebooks_2.Preprocess_2.3Upscale_31_2.png" src="../../_images/Notebooks_2.Preprocess_2.3Upscale_31_2.png" />
+</div>
 </div>
 </div>
 <div class="section" id="Illustrate-the-SEAS5-and-EOBS-UK-average">
@@ -4361,6 +4374,15 @@ MultiIndex([(2,  0, &#39;1982-02-01&#39;),
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../3.Evaluate/3.Evaluate.html" class="btn btn-neutral float-right" title="Evaluate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="2.2Mask.html" class="btn btn-neutral float-left" title="Masking" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

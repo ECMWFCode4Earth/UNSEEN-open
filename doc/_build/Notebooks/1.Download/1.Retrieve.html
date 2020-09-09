@@ -39,7 +39,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1.3 Merge" href="../2.Preprocess/2.1Merge.html" />
+    <link rel="next" title="Preprocess" href="../2.Preprocess/2.1Merge.html" />
     <link rel="prev" title="UNSEEN-open" href="../Workflow.html" /> 
 </head>
 
@@ -94,26 +94,18 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Retrieve</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Import-packages">Import packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#First-download">First download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#First-download">First download</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Use-xarray-to-visualize-the-netcdf-file">Use xarray to visualize the netcdf file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Download-all-data">Download all data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#EOBS-data-download">EOBS data download</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#Use-xarray-to-visualize-the-netcdf-file">Use xarray to visualize the netcdf file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Download-all-data">Download all data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#EOBS-data-download">EOBS data download</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.1Merge.html">1.3 Merge</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.1Merge.html#Concatenate-SEAS5">Concatenate SEAS5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.1Merge.html#EOBS">EOBS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.2Mask.html">1.4 Masking: from grid to country-averaged timeseries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.2Mask.html#Load-SEAS5-and-EOBS">Load SEAS5 and EOBS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.2Mask.html#Masking">Masking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.2Mask.html#Illustrate-the-SEAS5-and-EOBS-masks-for-the-UK">Illustrate the SEAS5 and EOBS masks for the UK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.2Mask.html#Potential-improvements">Potential improvements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.3Upscale.html">1.5 Upscaling EOBS then Masking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.3Upscale.html#Load-SEAS5-and-EOBS">Load SEAS5 and EOBS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.3Upscale.html#Masking">Masking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.3Upscale.html#Illustrate-the-SEAS5-and-EOBS-masks-for-the-UK">Illustrate the SEAS5 and EOBS masks for the UK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.3Upscale.html#And-extract-the-spatial-average">And extract the spatial average</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3.Evaluate/3.Evaluate.html">Evaluating the UNSEEN ensemble</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.1Merge.html">Preprocess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.2Mask.html">Masking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.3Upscale.html">Upscaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3.Evaluate/3.Evaluate.html">Evaluate</a></li>
 </ul>
 
             
@@ -601,10 +593,8 @@ the UK domain to reduce the size of the download.</p>
 Result(content_length=16800,content_type=application/x-netcdf,location=http://136.156.132.110/cache-compute-0001/cache/data0/adaptor.mars.external-1589266964.5635436-26283-29-a38e8975-b0ec-49ee-8f9b-7dea389f59cf.nc)
 </pre></div></div>
 </div>
-</div>
-</div>
 <div class="section" id="Use-xarray-to-visualize-the-netcdf-file">
-<h1>Use xarray to visualize the netcdf file<a class="headerlink" href="#Use-xarray-to-visualize-the-netcdf-file" title="Permalink to this headline">¶</a></h1>
+<h3>Use xarray to visualize the netcdf file<a class="headerlink" href="#Use-xarray-to-visualize-the-netcdf-file" title="Permalink to this headline">¶</a></h3>
 <p>I open the downloaded file and plot February 1993 precipitation over the UK.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -1023,7 +1013,7 @@ dl.xr-attrs {
 </div>
 </div>
 <div class="section" id="Download-all-data">
-<h1>Download all data<a class="headerlink" href="#Download-all-data" title="Permalink to this headline">¶</a></h1>
+<h3>Download all data<a class="headerlink" href="#Download-all-data" title="Permalink to this headline">¶</a></h3>
 <p>We will be using the SEAS5 hindcast, which is a dataset running from 1981-2016. The hindcast is initialized every month with 25 ensemble members and the forecast run for 6 months, indicated by blue horizontal bars below. February is forecasted by 6 initialization months (September-February). We discard the first month of the forecast because of dependence between the forecasts, explained in the evaluation section and are left with 5 initialization months (Sep-Jan) and 25 ensemble members
 forecasting february precipitation each year, totalling to an increase of 125 times the observed length.</p>
 <p>For a summary of all available C3S seasonal hindcasts, their initialization months and more specifics, please see <a class="reference external" href="https://confluence.ecmwf.int/display/CKB/C3S+Seasonal+Forecasts">ECMWF page</a> and the <a class="reference external" href="https://doi.org/10.5194/gmd-12-1087-2019">SEAS5 paper</a>.</p>
@@ -1210,7 +1200,7 @@ year = 1983 init_month = 1 leadtime_month = 2
 </div>
 </div>
 <div class="section" id="EOBS-data-download">
-<h1>EOBS data download<a class="headerlink" href="#EOBS-data-download" title="Permalink to this headline">¶</a></h1>
+<h3>EOBS data download<a class="headerlink" href="#EOBS-data-download" title="Permalink to this headline">¶</a></h3>
 <p>I tried to download EOBS through CDS, but the Product is temporally disabled for maintenance purposes (see below). As workaround I downloaded EOBS (from 1950 - 2019) and the most recent EOBS data (2020) <a class="reference external" href="https://surfobs.climate.copernicus.eu/dataaccess/access_eobs.php">here</a>. Note, you have to register as E-OBS user.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[99]:
@@ -1287,6 +1277,8 @@ During handling of the above exception, another exception occurred:
 </pre></div></div>
 </div>
 </div>
+</div>
+</div>
 
 
            </div>
@@ -1296,7 +1288,7 @@ During handling of the above exception, another exception occurred:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../2.Preprocess/2.1Merge.html" class="btn btn-neutral float-right" title="1.3 Merge" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../2.Preprocess/2.1Merge.html" class="btn btn-neutral float-right" title="Preprocess" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../Workflow.html" class="btn btn-neutral float-left" title="UNSEEN-open" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

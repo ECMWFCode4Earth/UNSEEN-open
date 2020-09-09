@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Evaluating the UNSEEN ensemble &mdash; unseen_open  documentation</title>
+  <title>Evaluate &mdash; unseen_open  documentation</title>
   
 
   
@@ -38,7 +38,8 @@
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Upscaling" href="../2.Preprocess/2.3Upscale.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,11 +84,28 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Introduction:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Whats-unseen.html">What is UNSEEN?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Workflow.html">UNSEEN-open</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Workflow.html#Download">Download</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Workflow.html#Preprocess">Preprocess</a></li>
+</ul>
+<p class="caption"><span class="caption-text">The workflow:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1.Download/1.Retrieve.html">1. Retrieve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.1Merge.html">Preprocess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.2Mask.html">Masking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.3Upscale.html">Upscaling</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Evaluate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Set-up">Set up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Read-the-data-and-convert-the-time-column">Read the data and convert the time column</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Timeseries">Timeseries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Independence">Independence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Stability">Stability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Fidelity">Fidelity</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             
@@ -134,7 +152,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Evaluating the UNSEEN ensemble</li>
+      <li>Evaluate</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -408,8 +426,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Evaluating-the-UNSEEN-ensemble">
-<h1>Evaluating the UNSEEN ensemble<a class="headerlink" href="#Evaluating-the-UNSEEN-ensemble" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Evaluate">
+<h1>Evaluate<a class="headerlink" href="#Evaluate" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook, we will evaluate the generated UNSEEN ensemble of UK February precipitation. In the first step of the workflow we have downloaded and pre-processed the data in python using xarray functionality. In this notebook, we switch to R since we believe R has a better functionality in extreme value statistics. We develop an <a class="reference external" href="https://github.com/timokelder/UNSEEN">R package</a> for easy evaluation of the UNSEEN ensemble and here, we illustrate how this package can be used in the UNSEEN
 workflow.</p>
 <div class="section" id="Set-up">
@@ -540,9 +558,8 @@ workflow.</p>
  $ tprate  : num  1.62 2.93 3.27 2 3.31 ...
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Illustrate-the-evaluation">
-<h2>Illustrate the evaluation<a class="headerlink" href="#Illustrate-the-evaluation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Timeseries">
+<h3>Timeseries<a class="headerlink" href="#Timeseries" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -560,6 +577,9 @@ workflow.</p>
 </div>
 </div>
 <p>Call the documentation of the function with <code class="docutils literal notranslate"><span class="pre">?unseen_timeseries</span></code></p>
+</div>
+<div class="section" id="Independence">
+<h3>Independence<a class="headerlink" href="#Independence" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -584,9 +604,12 @@ Warning message:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/Notebooks_3.Evaluate_3.Evaluate_13_1.png" class="no-scaled-link" src="../../_images/Notebooks_3.Evaluate_3.Evaluate_13_1.png" style="width: 420px; height: 420px;" />
+<img alt="../../_images/Notebooks_3.Evaluate_3.Evaluate_14_1.png" class="no-scaled-link" src="../../_images/Notebooks_3.Evaluate_3.Evaluate_14_1.png" style="width: 420px; height: 420px;" />
 </div>
 </div>
+</div>
+<div class="section" id="Stability">
+<h3>Stability<a class="headerlink" href="#Stability" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -609,9 +632,12 @@ Warning message:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/Notebooks_3.Evaluate_3.Evaluate_14_1.png" class="no-scaled-link" src="../../_images/Notebooks_3.Evaluate_3.Evaluate_14_1.png" style="width: 420px; height: 420px;" />
+<img alt="../../_images/Notebooks_3.Evaluate_3.Evaluate_16_1.png" class="no-scaled-link" src="../../_images/Notebooks_3.Evaluate_3.Evaluate_16_1.png" style="width: 420px; height: 420px;" />
 </div>
 </div>
+</div>
+<div class="section" id="Fidelity">
+<h3>Fidelity<a class="headerlink" href="#Fidelity" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -625,7 +651,7 @@ Warning message:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/Notebooks_3.Evaluate_3.Evaluate_15_0.png" class="no-scaled-link" src="../../_images/Notebooks_3.Evaluate_3.Evaluate_15_0.png" style="width: 420px; height: 420px;" />
+<img alt="../../_images/Notebooks_3.Evaluate_3.Evaluate_18_0.png" class="no-scaled-link" src="../../_images/Notebooks_3.Evaluate_3.Evaluate_18_0.png" style="width: 420px; height: 420px;" />
 </div>
 </div>
 <p>To include a mean-bias correction, set <code class="docutils literal notranslate"><span class="pre">biascor</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>:</p>
@@ -642,7 +668,7 @@ Warning message:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/Notebooks_3.Evaluate_3.Evaluate_17_0.png" class="no-scaled-link" src="../../_images/Notebooks_3.Evaluate_3.Evaluate_17_0.png" style="width: 420px; height: 420px;" />
+<img alt="../../_images/Notebooks_3.Evaluate_3.Evaluate_20_0.png" class="no-scaled-link" src="../../_images/Notebooks_3.Evaluate_3.Evaluate_20_0.png" style="width: 420px; height: 420px;" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -656,12 +682,20 @@ Warning message:
 </div>
 </div>
 </div>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../2.Preprocess/2.3Upscale.html" class="btn btn-neutral float-left" title="Upscaling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

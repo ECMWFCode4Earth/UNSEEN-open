@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1.4 Masking: from grid to country-averaged timeseries &mdash; unseen_open  documentation</title>
+  <title>Masking &mdash; unseen_open  documentation</title>
   
 
   
@@ -38,7 +38,9 @@
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Upscaling" href="2.3Upscale.html" />
+    <link rel="prev" title="Preprocess" href="2.1Merge.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,11 +85,29 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Introduction:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Whats-unseen.html">What is UNSEEN?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Workflow.html">UNSEEN-open</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Workflow.html#Download">Download</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Workflow.html#Preprocess">Preprocess</a></li>
+</ul>
+<p class="caption"><span class="caption-text">The workflow:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1.Download/1.Retrieve.html">1. Retrieve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.1Merge.html">Preprocess</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Masking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Import-packages">Import packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Load-SEAS5-and-EOBS">Load SEAS5 and EOBS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Masking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Extract-spatial-average">Extract spatial average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#EOBS">EOBS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#And-save-the-UK-weighted-average-datasets">And save the UK weighted average datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Illustrate-the-SEAS5-and-EOBS-masks-for-the-UK">Illustrate the SEAS5 and EOBS masks for the UK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Illustrate-the-SEAS5-and-EOBS-UK-average">Illustrate the SEAS5 and EOBS UK average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Potential-improvements">Potential improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.3Upscale.html">Upscaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3.Evaluate/3.Evaluate.html">Evaluate</a></li>
 </ul>
 
             
@@ -134,7 +154,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>1.4 Masking: from grid to country-averaged timeseries</li>
+      <li>Masking</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -408,8 +428,9 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="1.4-Masking:-from-grid-to-country-averaged-timeseries">
-<h1>1.4 Masking: from grid to country-averaged timeseries<a class="headerlink" href="#1.4-Masking:-from-grid-to-country-averaged-timeseries" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Masking">
+<h1>Masking<a class="headerlink" href="#Masking" title="Permalink to this headline">¶</a></h1>
+<p>From grid to country-averaged timeseries.</p>
 <p>In this notebook we explore how to best extract areal averaged precipitation and test this for UK precipitation within SEAS5 and EOBS, as part of our UNSEEN-open <a class="reference internal" href="../Workflow.html"><span class="doc">workflow</span></a>. The code is inspired on Matteo De Felice’s <a class="reference external" href="http://www.matteodefelice.name/post/aggregating-gridded-data/">blog</a> – credits to him!</p>
 <p>We create a mask for all 241 countries within <a class="reference external" href="https://regionmask.readthedocs.io/en/stable/#">Regionmask</a>, that has predefined countries from <a class="reference external" href="http://www.naturalearthdata.com">Natural Earth datasets</a> (shapefiles). We use the mask to go from gridded precipitation to country-averaged timeseries. We start with UK, number 31 within the country mask.</p>
 <div class="section" id="Import-packages">
@@ -477,9 +498,8 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 </div>
-</div>
 <div class="section" id="Load-SEAS5-and-EOBS">
-<h1>Load SEAS5 and EOBS<a class="headerlink" href="#Load-SEAS5-and-EOBS" title="Permalink to this headline">¶</a></h1>
+<h2>Load SEAS5 and EOBS<a class="headerlink" href="#Load-SEAS5-and-EOBS" title="Permalink to this headline">¶</a></h2>
 <p>From CDS, we retrieve SEAS5 in notebook <a class="reference external" href="1.Download/1.2Retrieve.ipynb">1.2 Retrieve</a> and concatenate the retrieved files in notebook <a class="reference external" href="1.Download/1.3Merge.ipynb">1.3 Merge</a>. We create a netcdf file containing the dimensions lat, lon, time (35 years), number (25 ensembles) and leadtime (5 initialization months).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -1239,11 +1259,9 @@ dl.xr-attrs {
        &#x27;2020-02-29T00:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></li></ul></div></li><li class='xr-section-item'><input id='section-c73d45f4-6945-4c03-a242-3c4b26b19aed' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c73d45f4-6945-4c03-a242-3c4b26b19aed' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rr</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-af7c520d-05c7-4c2d-9da6-e666c4ded652' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-af7c520d-05c7-4c2d-9da6-e666c4ded652' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e22d2a19-6cd1-4db9-8ddf-c826276b44f1' class='xr-var-data-in' type='checkbox'><label for='data-e22d2a19-6cd1-4db9-8ddf-c826276b44f1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>rainfall</dd><dt><span>units :</span></dt><dd>mm/day</dd><dt><span>standard_name :</span></dt><dd>thickness_of_rainfall_amount</dd></dl></div><pre class='xr-var-data'>[6621744 values with dtype=float32]</pre></li></ul></div></li><li class='xr-section-item'><input id='section-475f9c29-237a-48cc-b721-db516a5a056e' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-475f9c29-237a-48cc-b721-db516a5a056e' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div>
 </div>
 </div>
-<div class="section" id="Masking">
-<h1>Masking<a class="headerlink" href="#Masking" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>Masking<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Here we load the countries and create a mask for SEAS5 and for EOBS.</p>
-<div class="section" id="Load-countries">
-<h2>Load countries<a class="headerlink" href="#Load-countries" title="Permalink to this headline">¶</a></h2>
 <p>Regionmask has predefined countries from <a class="reference external" href="http://www.naturalearthdata.com">Natural Earth datasets</a> (shapefiles).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -1265,9 +1283,6 @@ dl.xr-attrs {
 ZW ZM YE VN VE V VU UZ UY FSM MH MP VI GU AS PR US GS IO SH PN AI FK KY BM VG TC MS JE GG IM GB AE UA UG TM TR TN TT TO TG TL TH TZ TJ TW SYR CH S SW SR SS SD LK E KR ZA SO SL SB SK SLO SG SL SC RS SN SA ST RSM WS VC LC KN RW RUS RO QA P PL PH PE PY PG PA PW PK OM N KP NG NE NI NZ NU CK NL AW CW NP NR NA MZ MA WS ME MN MD MC MX MU MR M ML MV MY MW MG MK L LT FL LY LR LS LB LV LA KG KW KO KI KE KZ J J J I IS PAL IRL IRQ IRN INDO IND IS HU HN HT GY GW GN GT GD GR GH D GE GM GA F PM WF MF BL PF NC TF AI FIN FJ ET EST ER GQ SV EG EC DO DM DJ GL FO DK CZ CN CY CU HR CI CR DRC CG KM CO CN MO HK CL TD CF CV CA CM KH MM BI BF BG BN BR BW BiH BO BT BJ BZ B BY BB BD BH BS AZ A AU IOT HM NF AU ARM AR AG AO AND DZ AL AF SG AQ SX
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Create-the-mask">
-<h2>Create the mask<a class="headerlink" href="#Create-the-mask" title="Permalink to this headline">¶</a></h2>
 <p>Now we create the mask for the SEAS5 grid. Only one timestep is needed to create the mask. This mask will lateron be used to mask all the timesteps.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -3516,9 +3531,8 @@ dl.xr-attrs {
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="Illustrate-the-SEAS5-and-EOBS-masks-for-the-UK">
-<h1>Illustrate the SEAS5 and EOBS masks for the UK<a class="headerlink" href="#Illustrate-the-SEAS5-and-EOBS-masks-for-the-UK" title="Permalink to this headline">¶</a></h1>
+<h2>Illustrate the SEAS5 and EOBS masks for the UK<a class="headerlink" href="#Illustrate-the-SEAS5-and-EOBS-masks-for-the-UK" title="Permalink to this headline">¶</a></h2>
 <p>Here I plot the masked mean SEAS5 and EOBS precipitation. EOBS is averaged over 71 years, SEAS5 is averaged over years, leadtime and ensemble members.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
@@ -3629,6 +3643,7 @@ Text(0.5, 1.0, &#39;EOBS&#39;)
 <img alt="../../_images/Notebooks_2.Preprocess_2.2Mask_36_8.png" src="../../_images/Notebooks_2.Preprocess_2.2Mask_36_8.png" />
 </div>
 </div>
+</div>
 <div class="section" id="Illustrate-the-SEAS5-and-EOBS-UK-average">
 <h2>Illustrate the SEAS5 and EOBS UK average<a class="headerlink" href="#Illustrate-the-SEAS5-and-EOBS-UK-average" title="Permalink to this headline">¶</a></h2>
 <p>And the area-weighted average UK precipitation for SEAS5 and EOBS I plot here. For SEAS5 I plot the range, both min/max and the 2.5/97.5 % percentile of all ensemble members and leadtimes for each year.</p>
@@ -3709,9 +3724,8 @@ Text(0.5, 1.0, &#39;EOBS&#39;)
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="Potential-improvements">
-<h1>Potential improvements<a class="headerlink" href="#Potential-improvements" title="Permalink to this headline">¶</a></h1>
+<h2>Potential improvements<a class="headerlink" href="#Potential-improvements" title="Permalink to this headline">¶</a></h2>
 <p>There are many different sources and methods available for extracting areal-averages from shapefiles. Here I have used shapely / masking in xarray. Something that lacks with this method is the weighted extraction from a shapefile, that is more precise on the boundaries. In R, raster:extract can use the percentage of the area that falls within the country for each grid cell to use as weight in averaging. For more information on this method, see the EGU 2018 course:
 https://github.com/hydrosoc/rhydro_EGU18/blob/master/netCDF.pdf. For SEAS5, with its coarse resolution, this might make a difference. However, for it’s speed and reproducibility, we have chosen to stick to xarray.</p>
 <p>We have used xarray where you can apply weights yourself to a dataset and then calculate the weighted mean. Sources I have used: <a class="reference external" href="http://xarray.pydata.org/en/stable/computation.html#weighted-array-reductions">xarray weighted reductions</a> <a class="reference external" href="http://www.matteodefelice.name/post/aggregating-gridded-data/">Matteo’s blog</a> <a class="reference external" href="https://regionmask.readthedocs.io/en/stable/#">regionmask package</a> <a class="reference external" href="https://nordicesmhub.github.io/NEGI-Abisko-2019/training/Example_model_global_arctic_average.html">Arctic weighted average
@@ -3721,8 +3735,18 @@ example</a> and <a class="reference external" href="http://xarray.pydata.org/en/
 <ol class="arabic simple">
 <li><p>Do the extraction in R and compare it to the current xarray method.</p></li>
 <li><p>Upscale EOBS to the SEAS5 grid and then mask: We could regrid EOBS to the SEAS5 grid and then select the same gridcells for both datasets. The country outline would not be perfect, but the masks would be the same so the comparison would be fair. I think this method is most commonly applied in climate science, where you regrid all your xx datasets to the same grid so you can compare them. Pro: pragmatic. Con: not a perfect country definition. I explore this in [1.5Upscale] Source: This pretty
-awesome colab notebook on seasonal forecasting regrids seasonal forecasts and reanalysis on the same grid before calculating skill scores <a class="reference external" href="https://colab.research.google.com/drive/1wWHz_SMCHNuos5fxWRUJTcB6wqkTJQCR#scrollTo=B8PyoC1vXvd">https://colab.research.google.com/drive/1wWHz_SMCHNuos5fxWRUJTcB6wqkTJQCR#scrollTo=B8PyoC1vXvd</a>-</p></li>
+<a class="reference external" href="https://colab.research.google.com/drive/1wWHz_SMCHNuos5fxWRUJTcB6wqkTJQCR#scrollTo=B8PyoC1vXvd-">awesome colab notebook</a> on seasonal forecasting regrids seasonal forecasts and reanalysis on the same grid before calculating skill scores</p></li>
 </ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -3730,6 +3754,15 @@ awesome colab notebook on seasonal forecasting regrids seasonal forecasts and re
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="2.3Upscale.html" class="btn btn-neutral float-right" title="Upscaling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="2.1Merge.html" class="btn btn-neutral float-left" title="Preprocess" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1.3 Merge &mdash; unseen_open  documentation</title>
+  <title>Preprocess &mdash; unseen_open  documentation</title>
   
 
   
@@ -38,7 +38,9 @@
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Masking" href="2.2Mask.html" />
+    <link rel="prev" title="1. Retrieve" href="../1.Download/1.Retrieve.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,11 +85,26 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Introduction:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Whats-unseen.html">What is UNSEEN?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Workflow.html">UNSEEN-open</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Workflow.html#Download">Download</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Workflow.html#Preprocess">Preprocess</a></li>
+</ul>
+<p class="caption"><span class="caption-text">The workflow:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1.Download/1.Retrieve.html">1. Retrieve</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Preprocess</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Merge">Merge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Import-packages">Import packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Concatenate-SEAS5">Concatenate SEAS5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#EOBS">EOBS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.2Mask.html">Masking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.3Upscale.html">Upscaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3.Evaluate/3.Evaluate.html">Evaluate</a></li>
 </ul>
 
             
@@ -134,7 +151,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>1.3 Merge</li>
+      <li>Preprocess</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -408,11 +425,13 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="1.3-Merge">
-<h1>1.3 Merge<a class="headerlink" href="#1.3-Merge" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Preprocess">
+<h1>Preprocess<a class="headerlink" href="#Preprocess" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Merge">
+<h2>Merge<a class="headerlink" href="#Merge" title="Permalink to this headline">¶</a></h2>
 <p>In this notebook, we will create one netcdf file out of the 175 nc files retrieved from CDS.</p>
 <div class="section" id="Import-packages">
-<h2>Import packages<a class="headerlink" href="#Import-packages" title="Permalink to this headline">¶</a></h2>
+<h3>Import packages<a class="headerlink" href="#Import-packages" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -473,9 +492,8 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 </div>
-</div>
 <div class="section" id="Concatenate-SEAS5">
-<h1>Concatenate SEAS5<a class="headerlink" href="#Concatenate-SEAS5" title="Permalink to this headline">¶</a></h1>
+<h3>Concatenate SEAS5<a class="headerlink" href="#Concatenate-SEAS5" title="Permalink to this headline">¶</a></h3>
 <p>The SEAS5 data consists of 175 netcdf files that we downloaded from CDS (<a class="reference external" href="reference">1.2 Retrieve</a>). We concatenate those into one netcdf file here. We create a netcdf file containing the dimensions lat, lon, number (25 ensembles), time (35 years) and leadtime (5 initialization months). To generate this, we loop over lead times, and open all 35 years of the lead time and then concatenate those leadtimes.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
@@ -2103,7 +2121,7 @@ dl.xr-attrs {
 </div>
 </div>
 <div class="section" id="EOBS">
-<h1>EOBS<a class="headerlink" href="#EOBS" title="Permalink to this headline">¶</a></h1>
+<h3>EOBS<a class="headerlink" href="#EOBS" title="Permalink to this headline">¶</a></h3>
 <p>I tried to download EOBS through CDS, but the Product was temporally disabled for maintenance purposes (<a class="reference external" href="reference">1.2 Retrieve</a>). As workaround, here, I downloaded EOBS (from 1950 - 2019) and the most recent EOBS data (2020) <a class="reference external" href="https://surfobs.climate.copernicus.eu/dataaccess/access_eobs.php">here</a>. Note, you have to register as E-OBS user.</p>
 <p>I will select February monthly mean precipitation to compare to SEAS5. I have taken the average mm/day over the month, which I think is more fair than the total monthly precipitation because of leap days.</p>
 <div class="nbinput docutils container">
@@ -3035,12 +3053,23 @@ dl.xr-attrs {
 </div>
 </div>
 </div>
+</div>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="2.2Mask.html" class="btn btn-neutral float-right" title="Masking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../1.Download/1.Retrieve.html" class="btn btn-neutral float-left" title="1. Retrieve" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
