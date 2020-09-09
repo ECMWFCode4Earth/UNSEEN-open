@@ -10,7 +10,7 @@ Welcome to unseen_open's documentation!
    :maxdepth: 2
    :caption: Contents:
    
-   Workflow
+   Notebooks/Workflow
 
 
 

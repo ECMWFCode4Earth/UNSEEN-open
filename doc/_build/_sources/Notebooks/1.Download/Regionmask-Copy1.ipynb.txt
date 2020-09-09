@@ -1,0 +1,380 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Creating regionmasks\n",
+    "In this notebook we will create a regionmask that will lateron be used to extract country averages.\n",
+    "\n",
+    "I follow Matteo De Felice's [blog](http://www.matteodefelice.name/post/aggregating-gridded-data/) -- credits to him!\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import xarray as xr \n",
+    "import numpy as np\n",
+    "import regionmask\n",
+    "import geopandas as gpd\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "from zipfile import ZipFile\n",
+    "import urllib.request\n",
+    "\n",
+    "import os"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'/lustre/soge1/projects/ls/personal/timo/UNSEEN-open'"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "##We want the working directory to be the UNSEEN-open directory\n",
+    "pwd = os.getcwd() ##current working directory is UNSEEN-open/Notebooks/1.Download\n",
+    "pwd #print the present working directory\n",
+    "os.chdir(pwd+'/../../') # Change the working directory to UNSEEN-open\n",
+    "os.getcwd() #print the working directory"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Download boundaries\n",
+    "\n",
+    "We download the shapefile of country boundaries from the [eurostat website](https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts)\n",
+    "\n",
+    "© EuroGeographics for the administrative boundaries"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Beginning file download with urllib2...\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "('Data/NUTS/NUTS_RG_10M_2016_4326_LEVL_0.shp.zip',\n",
+       " <http.client.HTTPMessage at 0x7f8bf1a13fd0>)"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "print('Beginning file download with urllib2...')\n",
+    "\n",
+    "url = 'https://gisco-services.ec.europa.eu/distribution/v2/nuts/shp/NUTS_RG_10M_2016_4326_LEVL_0.shp.zip'\n",
+    "urllib.request.urlretrieve(url, 'Data/NUTS/NUTS_RG_10M_2016_4326_LEVL_0.shp.zip')\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with ZipFile('Data/NUTS/NUTS_RG_10M_2016_4326_LEVL_0.shp.zip', 'r') as zip_ref:\n",
+    "    zip_ref.extractall('Data/NUTS')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Load the shapefile\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>LEVL_CODE</th>\n",
+       "      <th>NUTS_ID</th>\n",
+       "      <th>CNTR_CODE</th>\n",
+       "      <th>NUTS_NAME</th>\n",
+       "      <th>MOUNT_TYPE</th>\n",
+       "      <th>URBN_TYPE</th>\n",
+       "      <th>COAST_TYPE</th>\n",
+       "      <th>FID</th>\n",
+       "      <th>geometry</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>0</td>\n",
+       "      <td>AL</td>\n",
+       "      <td>AL</td>\n",
+       "      <td>SHQIPËRIA</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>AL</td>\n",
+       "      <td>POLYGON ((19.82698 42.46950, 19.83939 42.46950...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>0</td>\n",
+       "      <td>AT</td>\n",
+       "      <td>AT</td>\n",
+       "      <td>ÖSTERREICH</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>AT</td>\n",
+       "      <td>POLYGON ((15.54245 48.90770, 15.75363 48.85218...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>0</td>\n",
+       "      <td>BE</td>\n",
+       "      <td>BE</td>\n",
+       "      <td>BELGIQUE-BELGIË</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>BE</td>\n",
+       "      <td>POLYGON ((5.10218 51.42900, 5.08780 51.38230, ...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>0</td>\n",
+       "      <td>NL</td>\n",
+       "      <td>NL</td>\n",
+       "      <td>NEDERLAND</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>NL</td>\n",
+       "      <td>MULTIPOLYGON (((6.87491 53.40801, 6.91836 53.3...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>0</td>\n",
+       "      <td>PL</td>\n",
+       "      <td>PL</td>\n",
+       "      <td>POLSKA</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>PL</td>\n",
+       "      <td>MULTIPOLYGON (((18.95003 54.35831, 19.35966 54...</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   LEVL_CODE NUTS_ID CNTR_CODE        NUTS_NAME  MOUNT_TYPE  URBN_TYPE  \\\n",
+       "0          0      AL        AL        SHQIPËRIA           0          0   \n",
+       "1          0      AT        AT       ÖSTERREICH           0          0   \n",
+       "2          0      BE        BE  BELGIQUE-BELGIË           0          0   \n",
+       "3          0      NL        NL        NEDERLAND           0          0   \n",
+       "4          0      PL        PL           POLSKA           0          0   \n",
+       "\n",
+       "   COAST_TYPE FID                                           geometry  \n",
+       "0           0  AL  POLYGON ((19.82698 42.46950, 19.83939 42.46950...  \n",
+       "1           0  AT  POLYGON ((15.54245 48.90770, 15.75363 48.85218...  \n",
+       "2           0  BE  POLYGON ((5.10218 51.42900, 5.08780 51.38230, ...  \n",
+       "3           0  NL  MULTIPOLYGON (((6.87491 53.40801, 6.91836 53.3...  \n",
+       "4           0  PL  MULTIPOLYGON (((18.95003 54.35831, 19.35966 54...  "
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Load the shapefile\n",
+    "PATH_TO_SHAPEFILE = 'Data/NUTS/NUTS_RG_10M_2016_4326_LEVL_0.shp'\n",
+    "nuts = gpd.read_file(PATH_TO_SHAPEFILE)\n",
+    "nuts.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "177 'Natural Earth Countries: 110m' Regions (http://www.naturalearthdata.com)\n",
+       "FJ TZ WS CA US KZ UZ PG INDO AR CL DRC SO KE SD TD HT DO RUS BS FK N GL TF TL ZA LS MX UY BR BO PE CO PA CR NI HN SV GT BZ VE GY SR F EC PR J CU ZW BW NA SN ML MR BJ NE NG CM TG GH CI GN GW LR SL BF CF CG GA GQ ZM MW MZ SW AO BI IS LB MG PAL GM TN DZ J AE QA KW IRQ OM VU KH TH LA MM VN KP KR MN IND BD BT NP PK AF TJ KG TM IRN SYR ARM S BY UA PL A HU MD RO LT LV EST D BG GR TR AL HR CH L B NL P E IRL NC SB NZ AU LK CN TW I DK GB IS AZ GE PH MY BN SLO FIN SK CZ ER J PY YE SA AQ CN CY MA EG LY ET DJ SL UG RW BiH MK RS ME KO TT SS"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# CALCULATE MASK\n",
+    "regionmask.__version__\n",
+    "countries = regionmask.defined_regions.natural_earth.countries_110\n",
+    "countries"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "AttributeError",
+     "evalue": "module 'regionmask' has no attribute 'from_geopandas'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mAttributeError\u001b[0m                            Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-12-10a1321cfdf0>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;31m# CALCULATE MASK\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0mregionmask\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m__version__\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m \u001b[0mcountry_regions\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mregionmask\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfrom_geopandas\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnuts\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mAttributeError\u001b[0m: module 'regionmask' has no attribute 'from_geopandas'"
+     ]
+    }
+   ],
+   "source": [
+    "country_regions = regionmask.from_geopandas(nuts)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0     False\n",
+       "1     False\n",
+       "2     False\n",
+       "3     False\n",
+       "4     False\n",
+       "5     False\n",
+       "6     False\n",
+       "7     False\n",
+       "8     False\n",
+       "9     False\n",
+       "10    False\n",
+       "11    False\n",
+       "12    False\n",
+       "13    False\n",
+       "14    False\n",
+       "15    False\n",
+       "16    False\n",
+       "17    False\n",
+       "18    False\n",
+       "19    False\n",
+       "20    False\n",
+       "21    False\n",
+       "22    False\n",
+       "23    False\n",
+       "24    False\n",
+       "25    False\n",
+       "26    False\n",
+       "27    False\n",
+       "28    False\n",
+       "29    False\n",
+       "30    False\n",
+       "31    False\n",
+       "32    False\n",
+       "33    False\n",
+       "34     True\n",
+       "35    False\n",
+       "36    False\n",
+       "Name: NUTS_ID, dtype: bool"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "UK_mask = regionmask.Regions_cls()\n",
+    "nuts_mask_poly = regionmask.Regions_cls(name = 'nuts_mask', numbers = list(range(0,37)), names = list(nuts.NUTS_ID), abbrevs = list(nuts.NUTS_ID), outlines = list(nuts.geometry.values[i] for i in range(0,37)))\n",
+    "print(nuts_mask_poly)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "UNSEEN-open",
+   "language": "python",
+   "name": "unseen-open"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

@@ -1,0 +1,1312 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Retrieve &mdash; unseen_open  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> unseen_open
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Workflow.html">UNSEEN-open</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Workflow.html#Download">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Workflow.html#Preprocess">Preprocess</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">unseen_open</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>1. Retrieve</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Notebooks/1.Download/1.Retrieve.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="1.-Retrieve">
+<h1>1. Retrieve<a class="headerlink" href="#1.-Retrieve" title="Permalink to this headline">¶</a></h1>
+<p>We want to download the monthly precipitation for February. I use the automatically generated request from the CDS server. There are two datasets we can use to download the data: <a class="reference external" href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/seasonal-original-single-levels?tab=form">Seasonal forecast daily data on single levels</a> and <a class="reference external" href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/seasonal-monthly-single-levels?tab=form">Seasonal forecast monthly statistics on single levels</a>. We will use the
+latter for easy downloading of the monthly values. If we want to go to higher temporal resolution, such as daily extremes, we will have to consult the other dataset.</p>
+<p>To get started with CDS, you have to register at <a class="reference external" href="https://cds.climate.copernicus.eu/">https://cds.climate.copernicus.eu/</a> and copy your UID and API key from <a class="reference external" href="https://cds.climate.copernicus.eu/user">https://cds.climate.copernicus.eu/user</a> in the <code class="docutils literal notranslate"><span class="pre">~/.cdsapirc</span></code> file in the home directory of your user. See the <a class="reference external" href="https://nbviewer.jupyter.org/github/esowc/ml_flood/blob/master/notebooks/1_data_download_analysis_visualization/1.01_cdsapi_setup.ipynb">ml-flood project</a> for more details</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">UID</span> <span class="o">=</span> <span class="s1">&#39;UID&#39;</span>
+<span class="n">API_key</span> <span class="o">=</span> <span class="s1">&#39;API_key&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="c1">#Uncomment the following lines to write the UID and API key in the .cdsapirc file</span>
+<span class="c1"># with open(os.path.join(os.path.expanduser(&#39;~&#39;), &#39;.cdsapirc&#39;), &#39;w&#39;) as f:</span>
+<span class="c1">#     f.write(&#39;url: https://cds.climate.copernicus.eu/api/v2\n&#39;)</span>
+<span class="c1">#     f.write(f&#39;key: {UID}:{API_key}&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+46
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+47
+</pre></div></div>
+</div>
+<div class="section" id="Import-packages">
+<h2>Import packages<a class="headerlink" href="#Import-packages" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[100]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##This is so variables get printed within jupyter</span>
+<span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="kn">import</span> <span class="n">InteractiveShell</span>
+<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##import packages</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">cdsapi</span> <span class="c1">## check the current working directory, which should be the UNSEEN-open directory</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##We want the working directory to be the UNSEEN-open directory</span>
+<span class="n">pwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="c1">##current working directory is UNSEEN-open/Notebooks/1.Download</span>
+<span class="n">pwd</span> <span class="c1">#print the present working directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">pwd</span><span class="o">+</span><span class="s1">&#39;/../../&#39;</span><span class="p">)</span> <span class="c1"># Change the working directory to UNSEEN-open</span>
+<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="c1">#print the working directory</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;/lustre/soge1/projects/ls/personal/timo/UNSEEN-open/Notebooks/1.Download&#39;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;/lustre/soge1/projects/ls/personal/timo/UNSEEN-open&#39;
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="First-download">
+<h2>First download<a class="headerlink" href="#First-download" title="Permalink to this headline">¶</a></h2>
+<p>In our request, we will use the monthly mean. Interestingly, there is also the option to use the monthly maximum! We previously downloaded the data on daily resolution and extracted the monthly (or seasonal) maximum from that data. If we could just download the monthly maximum instead that might save a lot of processing power! However, you would be restricted to daily extremes only, for multi-day extremes (5 days is often used), you would have to do the original processing workflow. We select
+the UK domain to reduce the size of the download.</p>
+<p>Here I download the monthly mean total precipitation (both convective and large scale precipitation) forecast for February 1993. It downloads all 25 ensemble members for the forecasts initialized in january.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##Our first download:</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+
+<span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
+    <span class="s1">&#39;seasonal-monthly-single-levels&#39;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;netcdf&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;originating_centre&#39;</span><span class="p">:</span> <span class="s1">&#39;ecmwf&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;system&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;total_precipitation&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;monthly_mean&#39;</span><span class="p">,</span> <span class="c1">#&#39;monthly_maximum&#39;,, &#39;monthly_standard_deviation&#39;,</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="s1">&#39;1993&#39;</span><span class="p">,</span> <span class="c1">#data before 1993 is available.</span>
+        <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="c1">#Initialization month. Target month is February (2), initialization months are August-January (8-12,1)</span>
+        <span class="s1">&#39;leadtime_month&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="c1">##Use of single months is much faster. Leadtime 0 does not exist. The first lead time is 1.</span>
+            <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="p">[</span><span class="c1">##Select UK domain to reduce the size of the download</span>
+            <span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span>
+            <span class="mi">2</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;Data/First_download.nc&#39;</span><span class="p">)</span> <span class="c1">##can I use nc? yes!</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+2020-05-13 10:08:56,140 INFO Welcome to the CDS
+2020-05-13 10:08:56,142 INFO Sending request to https://cds.climate.copernicus.eu/api/v2/resources/seasonal-monthly-single-levels
+2020-05-13 10:08:56,983 INFO Request is completed
+2020-05-13 10:08:56,984 INFO Downloading http://136.156.132.110/cache-compute-0001/cache/data0/adaptor.mars.external-1589266964.5635436-26283-29-a38e8975-b0ec-49ee-8f9b-7dea389f59cf.nc to Data/First_download.nc (16.4K)
+2020-05-13 10:08:57,131 INFO Download rate 112.7K/s
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Result(content_length=16800,content_type=application/x-netcdf,location=http://136.156.132.110/cache-compute-0001/cache/data0/adaptor.mars.external-1589266964.5635436-26283-29-a38e8975-b0ec-49ee-8f9b-7dea389f59cf.nc)
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="Use-xarray-to-visualize-the-netcdf-file">
+<h1>Use xarray to visualize the netcdf file<a class="headerlink" href="#Use-xarray-to-visualize-the-netcdf-file" title="Permalink to this headline">¶</a></h1>
+<p>I open the downloaded file and plot February 1993 precipitation over the UK.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pr_1993_ds</span><span class="o">=</span><span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;Data/First_download.nc&#39;</span><span class="p">)</span>
+<span class="n">pr_1993_ds</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<title>Show/Hide data repr</title>
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<title>Show/Hide attributes</title>
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+.xr-wrap {
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt, dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><div class='xr-wrap'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-95c48420-db9a-4b31-b74a-66a21df74637' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-95c48420-db9a-4b31-b74a-66a21df74637' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>latitude</span>: 11</li><li><span class='xr-has-index'>longitude</span>: 14</li><li><span class='xr-has-index'>number</span>: 25</li><li><span class='xr-has-index'>time</span>: 2</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-67eba7e3-4fdc-4e44-8915-e9cee4f2b84a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-67eba7e3-4fdc-4e44-8915-e9cee4f2b84a' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-11.0 -10.0 -9.0 ... 0.0 1.0 2.0</div><input id='attrs-96a7e961-3547-424f-8e3e-ef9a9db51541' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-96a7e961-3547-424f-8e3e-ef9a9db51541' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9f5155fe-5b5c-4647-b449-3e92632bb1c2' class='xr-var-data-in' type='checkbox'><label for='data-9f5155fe-5b5c-4647-b449-3e92632bb1c2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><pre class='xr-var-data'>array([-11., -10.,  -9.,  -8.,  -7.,  -6.,  -5.,  -4.,  -3.,  -2.,  -1.,   0.,
+         1.,   2.], dtype=float32)</pre></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>60.0 59.0 58.0 ... 52.0 51.0 50.0</div><input id='attrs-8f5e4bf7-08b0-4a79-9399-5195d83f947f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8f5e4bf7-08b0-4a79-9399-5195d83f947f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-513f8465-38a4-434a-8d66-f4deea58ecef' class='xr-var-data-in' type='checkbox'><label for='data-513f8465-38a4-434a-8d66-f4deea58ecef' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><pre class='xr-var-data'>array([60., 59., 58., 57., 56., 55., 54., 53., 52., 51., 50.], dtype=float32)</pre></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>number</span></div><div class='xr-var-dims'>(number)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 5 6 ... 19 20 21 22 23 24</div><input id='attrs-d6074dcc-3172-45de-9c28-751441112e99' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d6074dcc-3172-45de-9c28-751441112e99' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-845cbb02-9997-4692-8f4c-0bf22a77e43d' class='xr-var-data-in' type='checkbox'><label for='data-845cbb02-9997-4692-8f4c-0bf22a77e43d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>ensemble_member</dd></dl></div><pre class='xr-var-data'>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17,
+       18, 19, 20, 21, 22, 23, 24], dtype=int32)</pre></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-01 1993-02-01</div><input id='attrs-5c49c2df-81bf-4bc5-b629-fa51a3b8f65c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5c49c2df-81bf-4bc5-b629-fa51a3b8f65c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-35f8192f-8f3c-4ae0-be67-f917944a5bbc' class='xr-var-data-in' type='checkbox'><label for='data-35f8192f-8f3c-4ae0-be67-f917944a5bbc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd></dl></div><pre class='xr-var-data'>array([&#x27;1993-01-01T00:00:00.000000000&#x27;, &#x27;1993-02-01T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></li></ul></div></li><li class='xr-section-item'><input id='section-fb3980c7-8b33-44c4-ae37-590dbaf1fc35' class='xr-section-summary-in' type='checkbox'  checked><label for='section-fb3980c7-8b33-44c4-ae37-590dbaf1fc35' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>tprate</span></div><div class='xr-var-dims'>(time, number, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-97521ca4-2d0c-4e13-8605-1eb0de3ec03b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-97521ca4-2d0c-4e13-8605-1eb0de3ec03b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ce896952-c28d-45bf-9184-a0b28571df0e' class='xr-var-data-in' type='checkbox'><label for='data-ce896952-c28d-45bf-9184-a0b28571df0e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>m s**-1</dd><dt><span>long_name :</span></dt><dd>Mean total precipitation rate</dd></dl></div><pre class='xr-var-data'>array([[[[7.843623e-08, ..., 5.291088e-08],
+         ...,
+         [5.904984e-08, ..., 1.335037e-08]],
+
+        ...,
+
+        [[8.193555e-08, ..., 6.469647e-08],
+         ...,
+         [4.698779e-08, ..., 2.983202e-08]]],
+
+
+       [[[7.322512e-08, ..., 7.874678e-08],
+         ...,
+         [4.052692e-08, ..., 2.413616e-08]],
+
+        ...,
+
+        [[5.092263e-08, ..., 3.040388e-08],
+         ...,
+         [3.127492e-08, ..., 2.817704e-08]]]], dtype=float32)</pre></li></ul></div></li><li class='xr-section-item'><input id='section-61b63345-dfc5-4649-8f97-cee6b0c90cf1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-61b63345-dfc5-4649-8f97-cee6b0c90cf1' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>history :</span></dt><dd>2020-05-12 07:02:45 GMT by grib_to_netcdf-2.16.0: /opt/ecmwf/eccodes/bin/grib_to_netcdf -S param -o /cache/data0/adaptor.mars.external-1589266964.5635436-26283-29-a38e8975-b0ec-49ee-8f9b-7dea389f59cf.nc /cache/tmp/a38e8975-b0ec-49ee-8f9b-7dea389f59cf-adaptor.mars.external-1589266964.5641062-26283-11-tmp.grib</dd></dl></div></li></ul></div></div></div>
+</div>
+<p>I select ensemble member 0 and february precipitation (‘tprate’ called apparently) and I use cartopy to make the map.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">## Use cartopy for nicer maps</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">OSGB</span><span class="p">())</span>
+<span class="n">pr_1993_ds</span><span class="p">[</span><span class="s1">&#39;tprate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1993-02&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>  <span class="c1">#,cmap=plt.cm.Blues,</span>
+
+<span class="c1"># ax.set_extent(extent)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;50m&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.collections.QuadMesh at 0x7f5435adfa60&gt;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x7f5435b6ff10&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/Notebooks_1.Download_1.Retrieve_12_2.png" src="../../_images/Notebooks_1.Download_1.Retrieve_12_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Download-all-data">
+<h1>Download all data<a class="headerlink" href="#Download-all-data" title="Permalink to this headline">¶</a></h1>
+<p>We will be using the SEAS5 hindcast, which is a dataset running from 1981-2016. The hindcast is initialized every month with 25 ensemble members and the forecast run for 6 months, indicated by blue horizontal bars below. February is forecasted by 6 initialization months (September-February). We discard the first month of the forecast because of dependence between the forecasts, explained in the evaluation section and are left with 5 initialization months (Sep-Jan) and 25 ensemble members
+forecasting february precipitation each year, totalling to an increase of 125 times the observed length.</p>
+<p>For a summary of all available C3S seasonal hindcasts, their initialization months and more specifics, please see <a class="reference external" href="https://confluence.ecmwf.int/display/CKB/C3S+Seasonal+Forecasts">ECMWF page</a> and the <a class="reference external" href="https://doi.org/10.5194/gmd-12-1087-2019">SEAS5 paper</a>.</p>
+<p><img alt="title" src="Notebooks/1.Download/../../graphs/Data_illustration.png" /></p>
+<p>The first download example above downloaded all 25 ensemble members for the forecast initialized in January (the bottom bar). We should repeat this over the other initialization month and over all years (1981-2016).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">init_months</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">13</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="c1">## Initialization months 9-12,1 (Sep-Jan)</span>
+<span class="n">init_months</span>
+<span class="n">years</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1982</span><span class="p">,</span><span class="mi">2017</span><span class="p">)</span>
+<span class="n">years</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 9, 10, 11, 12,  1])
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992,
+       1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003,
+       2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014,
+       2015, 2016])
+</pre></div></div>
+</div>
+<p>For our download, we loop over initialization months and years. Because we only want February precipitation, the leadtime month (forecast length) changes with the initialization month. For example, in the September initialized forecasts, we only want the leadtime month 6 = February. For August initialized this is leadtime 5, etc. Furthermore, the year the forecast is initialized is required for the download. For September - December initialized forecasts, this is the target year-1. For January
+it is the same year as the target year. For example, for the first two target years this looks like the following:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[101]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+
+<span></span><span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span><span class="c1">#len(years)):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">init_months</span><span class="p">)):</span>
+        <span class="n">init_month</span> <span class="o">=</span> <span class="n">init_months</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">leadtime_month</span> <span class="o">=</span> <span class="mi">6</span><span class="o">-</span><span class="n">i</span>
+        <span class="k">if</span> <span class="n">init_month</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">year</span> <span class="o">=</span> <span class="n">years</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">year</span> <span class="o">=</span> <span class="n">years</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;year = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39; init_month = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">init_month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; leadtime_month = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">leadtime_month</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+year = 1981 init_month = 9 leadtime_month = 6
+year = 1981 init_month = 10 leadtime_month = 5
+year = 1981 init_month = 11 leadtime_month = 4
+year = 1981 init_month = 12 leadtime_month = 3
+year = 1982 init_month = 1 leadtime_month = 2
+year = 1982 init_month = 9 leadtime_month = 6
+year = 1982 init_month = 10 leadtime_month = 5
+year = 1982 init_month = 11 leadtime_month = 4
+year = 1982 init_month = 12 leadtime_month = 3
+year = 1983 init_month = 1 leadtime_month = 2
+</pre></div></div>
+</div>
+<p>Write a function that is used for the download.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">retrieve</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">originating_centre</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">init_month</span><span class="p">,</span> <span class="n">leadtime_month</span><span class="p">):</span>
+
+    <span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
+        <span class="s1">&#39;seasonal-monthly-single-levels&#39;</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;netcdf&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;originating_centre&#39;</span><span class="p">:</span> <span class="n">originating_centre</span><span class="p">,</span>
+            <span class="s1">&#39;system&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="n">variable</span><span class="p">,</span>
+            <span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s1">&#39;monthly_mean&#39;</span><span class="p">,</span> <span class="c1">#&#39;monthly_maximum&#39;,, &#39;monthly_standard_deviation&#39;,</span>
+            <span class="p">],</span>
+            <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">),</span> <span class="c1">#data before 1993 is available.</span>
+            <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%.2i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">init_month</span><span class="p">,</span> <span class="c1">#Initialization month. Target month is February (2), initialization months are August-January (8-12,1)</span>
+            <span class="s1">&#39;leadtime_month&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="c1">##The lead times you want. Use of single months is much faster. Leadtime 0 does not exist. The first lead time is 1.</span>
+                <span class="c1">#For initialization month 1 (January), the leadtime months is 2 (February). For initialization month 12 (december), the lead time month is 3 (February).</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">leadtime_month</span><span class="p">),</span>
+            <span class="p">],</span>
+            <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="p">[</span><span class="c1">##Select UK domain to reduce the size of the download</span>
+                     <span class="c1">## 25N-75N x. 40W-75E</span>
+                <span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;../UK_example/&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">%.2i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">init_month</span> <span class="o">+</span> <span class="s1">&#39;.nc&#39;</span><span class="p">)</span>
+
+<span class="c1"># retrieve(variable = &#39;total_precipitation&#39;,originating_centre = &#39;ecmwf&#39;, year = years[0], init_month = &quot;%.2i&quot; % init_months[0])</span>
+</pre></div>
+</div>
+</div>
+<p>And start the download! In total, we request 35 years x initialization dates = 175 requests. I could try sending just 5 request of the different initialization dates for all years?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">years</span><span class="p">)):</span>  <span class="c1">##add if error still continue</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">init_months</span><span class="p">)):</span>
+        <span class="n">init_month</span> <span class="o">=</span> <span class="n">init_months</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">leadtime_month</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">-</span> <span class="n">i</span>
+        <span class="k">if</span> <span class="n">init_month</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">year</span> <span class="o">=</span> <span class="n">years</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">year</span> <span class="o">=</span> <span class="n">years</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">retrieve</span><span class="p">(</span><span class="n">variable</span><span class="o">=</span><span class="s1">&#39;total_precipitation&#39;</span><span class="p">,</span>
+                 <span class="n">originating_centre</span><span class="o">=</span><span class="s1">&#39;ecmwf&#39;</span><span class="p">,</span>
+                 <span class="n">year</span><span class="o">=</span><span class="n">year</span><span class="p">,</span>
+                 <span class="n">init_month</span><span class="o">=</span><span class="n">init_month</span><span class="p">,</span>
+                 <span class="n">leadtime_month</span><span class="o">=</span><span class="n">leadtime_month</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+2020-05-18 10:14:48,767 INFO Welcome to the CDS
+2020-05-18 10:14:48,768 INFO Sending request to https://cds.climate.copernicus.eu/api/v2/resources/seasonal-monthly-single-levels
+2020-05-18 10:14:49,485 INFO Downloading http://136.156.132.235/cache-compute-0006/cache/data5/adaptor.mars.external-1589380912.7108843-4209-7-1add31ae-a0cd-44ce-83ac-9ff7c97f1b01.nc to ../UK_example/198109.nc (8.9K)
+2020-05-18 10:14:49,575 INFO Download rate 101.5K/s
+2020-05-18 10:14:49,803 INFO Welcome to the CDS
+2020-05-18 10:14:49,804 INFO Sending request to https://cds.climate.copernicus.eu/api/v2/resources/seasonal-monthly-single-levels
+2020-05-18 10:14:50,498 INFO Downloading http://136.156.132.153/cache-compute-0002/cache/data4/adaptor.mars.external-1589381056.172494-12462-1-c9714216-87ac-49bc-be19-260627a9077d.nc to ../UK_example/198110.nc (8.9K)
+2020-05-18 10:14:50,571 INFO Download rate 124.6K/s
+2020-05-18 10:14:51,070 INFO Welcome to the CDS
+2020-05-18 10:14:51,071 INFO Sending request to https://cds.climate.copernicus.eu/api/v2/resources/seasonal-monthly-single-levels
+2020-05-18 10:14:51,213 INFO Downloading http://136.156.132.235/cache-compute-0006/cache/data9/adaptor.mars.external-1589381301.6300867-8112-3-49ba0ab2-34fe-4364-9dec-700bf911b079.nc to ../UK_example/198111.nc (8.9K)
+2020-05-18 10:14:51,254 INFO Download rate 219.7K/s
+2020-05-18 10:14:51,415 INFO Welcome to the CDS
+2020-05-18 10:14:51,416 INFO Sending request to https://cds.climate.copernicus.eu/api/v2/resources/seasonal-monthly-single-levels
+2020-05-18 10:14:51,548 INFO Request is queued
+</pre></div></div>
+</div>
+<p>The download sometimes fails. When redoing the request it does download. I don’t know what is causing the failure? Below I donwload the file that failed.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[97]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#201501 missing</span>
+
+<span class="n">year</span> <span class="o">=</span> <span class="mi">2015</span>
+<span class="n">init_month</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">leadtime_month</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">retrieve</span><span class="p">(</span><span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;total_precipitation&#39;</span><span class="p">,</span><span class="n">originating_centre</span> <span class="o">=</span> <span class="s1">&#39;ecmwf&#39;</span><span class="p">,</span> <span class="n">year</span> <span class="o">=</span> <span class="n">year</span><span class="p">,</span>
+                 <span class="n">init_month</span> <span class="o">=</span> <span class="n">init_month</span><span class="p">,</span> <span class="n">leadtime_month</span> <span class="o">=</span> <span class="n">leadtime_month</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+2020-05-15 11:51:16,127 INFO Welcome to the CDS
+2020-05-15 11:51:16,129 INFO Sending request to https://cds.climate.copernicus.eu/api/v2/resources/seasonal-monthly-single-levels
+2020-05-15 11:51:16,327 INFO Downloading http://136.156.133.46/cache-compute-0015/cache/data7/adaptor.mars.external-1589527607.2123153-8094-37-3b786f72-2e2a-462f-bbb8-9c8d89c05102.nc to ../UK_example/201501.nc (8.9K)
+2020-05-15 11:51:16,485 INFO Download rate 56.7K/s
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="EOBS-data-download">
+<h1>EOBS data download<a class="headerlink" href="#EOBS-data-download" title="Permalink to this headline">¶</a></h1>
+<p>I tried to download EOBS through CDS, but the Product is temporally disabled for maintenance purposes (see below). As workaround I downloaded EOBS (from 1950 - 2019) and the most recent EOBS data (2020) <a class="reference external" href="https://surfobs.climate.copernicus.eu/dataaccess/access_eobs.php">here</a>. Note, you have to register as E-OBS user.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[99]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
+    <span class="s1">&#39;insitu-gridded-observations-europe&#39;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;v20.0e&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;zip&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="s1">&#39;ensemble_mean&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;precipitation_amount&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;grid_resolution&#39;</span><span class="p">:</span> <span class="s1">&#39;0_25&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;period&#39;</span><span class="p">:</span> <span class="s1">&#39;full_period&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;../UK_example/EOBS/EOBS.zip&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+2020-05-15 14:06:44,721 INFO Welcome to the CDS
+2020-05-15 14:06:44,722 INFO Sending request to https://cds.climate.copernicus.eu/api/v2/resources/insitu-gridded-observations-europe
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">HTTPError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">~/.conda/envs/UNSEEN-open/lib/python3.8/site-packages/cdsapi/api.py</span> in <span class="ansi-cyan-fg">_api</span><span class="ansi-blue-fg">(self, url, request, method)</span>
+<span class="ansi-green-intense-fg ansi-bold">    388</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 389</span><span class="ansi-red-fg">             </span>result<span class="ansi-blue-fg">.</span>raise_for_status<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    390</span>             reply <span class="ansi-blue-fg">=</span> result<span class="ansi-blue-fg">.</span>json<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/.conda/envs/UNSEEN-open/lib/python3.8/site-packages/requests/models.py</span> in <span class="ansi-cyan-fg">raise_for_status</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    940</span>         <span class="ansi-green-fg">if</span> http_error_msg<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 941</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> HTTPError<span class="ansi-blue-fg">(</span>http_error_msg<span class="ansi-blue-fg">,</span> response<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    942</span>
+
+<span class="ansi-red-fg">HTTPError</span>: 403 Client Error:  for url: https://cds.climate.copernicus.eu/api/v2/resources/insitu-gridded-observations-europe
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">Exception</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-99-d12768b41b79&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> c.retrieve(
+</span><span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-blue-fg">&#39;insitu-gridded-observations-europe&#39;</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     {
+<span class="ansi-green-intense-fg ansi-bold">      4</span>         <span class="ansi-blue-fg">&#39;version&#39;</span><span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#39;v20.0e&#39;</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>         <span class="ansi-blue-fg">&#39;format&#39;</span><span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#39;zip&#39;</span><span class="ansi-blue-fg">,</span>
+
+<span class="ansi-green-fg">~/.conda/envs/UNSEEN-open/lib/python3.8/site-packages/cdsapi/api.py</span> in <span class="ansi-cyan-fg">retrieve</span><span class="ansi-blue-fg">(self, name, request, target)</span>
+<span class="ansi-green-intense-fg ansi-bold">    315</span>
+<span class="ansi-green-intense-fg ansi-bold">    316</span>     <span class="ansi-green-fg">def</span> retrieve<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">,</span> request<span class="ansi-blue-fg">,</span> target<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 317</span><span class="ansi-red-fg">         </span>result <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_api<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;%s/resources/%s&#39;</span> <span class="ansi-blue-fg">%</span> <span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>url<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> request<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;POST&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    318</span>         <span class="ansi-green-fg">if</span> target <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    319</span>             result<span class="ansi-blue-fg">.</span>download<span class="ansi-blue-fg">(</span>target<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/.conda/envs/UNSEEN-open/lib/python3.8/site-packages/cdsapi/api.py</span> in <span class="ansi-cyan-fg">_api</span><span class="ansi-blue-fg">(self, url, request, method)</span>
+<span class="ansi-green-intense-fg ansi-bold">    408</span>                                  &#34;of &#39;%s&#39; at %s&#34; % (t[&#39;title&#39;], t[&#39;url&#39;]))
+<span class="ansi-green-intense-fg ansi-bold">    409</span>                     error <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;. &#39;</span><span class="ansi-blue-fg">.</span>join<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 410</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">raise</span> Exception<span class="ansi-blue-fg">(</span>error<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    411</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    412</span>                 <span class="ansi-green-fg">raise</span>
+
+<span class="ansi-red-fg">Exception</span>: Product temporally disabled for maintenance purposes. Sorry for the inconvenience, please try again later.
+</pre></div></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Timo Kelder
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

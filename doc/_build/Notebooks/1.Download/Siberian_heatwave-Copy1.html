@@ -1,0 +1,818 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Retrieve &mdash; unseen_open  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> unseen_open
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Workflow.html">UNSEEN-open</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Workflow.html#Download">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Workflow.html#Preprocess">Preprocess</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">unseen_open</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>1. Retrieve</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Notebooks/1.Download/Siberian_heatwave-Copy1.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="1.-Retrieve">
+<h1>1. Retrieve<a class="headerlink" href="#1.-Retrieve" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Import-packages">
+<h2>Import packages<a class="headerlink" href="#Import-packages" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##This is so variables get printed within jupyter</span>
+<span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="kn">import</span> <span class="n">InteractiveShell</span>
+<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##import packages</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">cdsapi</span> <span class="c1">## check the current working directory, which should be the UNSEEN-open directory</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../../&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">src.CDSretrieve</span> <span class="kn">import</span> <span class="n">retrieve</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##We want the working directory to be the UNSEEN-open directory</span>
+<span class="n">pwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="c1">##current working directory is UNSEEN-open/Notebooks/1.Download</span>
+<span class="n">pwd</span> <span class="c1">#print the present working directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">pwd</span><span class="o">+</span><span class="s1">&#39;/../../&#39;</span><span class="p">)</span> <span class="c1"># Change the working directory to UNSEEN-open</span>
+<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="c1">#print the working directory</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;/lustre/soge1/projects/ls/personal/timo/UNSEEN-open/Notebooks/1.Download&#39;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;/lustre/soge1/projects/ls/personal/timo/UNSEEN-open&#39;
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="Download-all-data">
+<h1>Download all data<a class="headerlink" href="#Download-all-data" title="Permalink to this headline">¶</a></h1>
+<p>We will be using the SEAS5 hindcast, which is a dataset running from 1981-2016. The hindcast is initialized every month with 25 ensemble members and the forecast run for 6 months, indicated by blue horizontal bars below. February is forecasted by 6 initialization months (September-February). We discard the first month of the forecast because of dependence between the forecasts, explained in the evaluation section and are left with 5 initialization months (Sep-Jan) and 25 ensemble members
+forecasting february precipitation each year, totalling to an increase of 125 times the observed length.</p>
+<p>For a summary of all available C3S seasonal hindcasts, their initialization months and more specifics, please see <a class="reference external" href="https://confluence.ecmwf.int/display/CKB/C3S+Seasonal+Forecasts">ECMWF page</a> and the <a class="reference external" href="https://doi.org/10.5194/gmd-12-1087-2019">SEAS5 paper</a>.</p>
+<p><img alt="title" src="Notebooks/1.Download/../../graphs/Data_illustration.png" /></p>
+<p>The first download example above downloaded all 25 ensemble members for the forecast initialized in January (the bottom bar). We should repeat this over the other initialization month and over all years (1981-2016).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">get_init_months</span><span class="p">(</span><span class="n">target_month</span><span class="p">):</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">target_month</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target_month</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">target_month</span><span class="p">]</span>
+    <span class="n">init_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">target</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">))]</span>
+    <span class="n">init_months</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span> <span class="o">+</span> <span class="n">i</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">init_list</span><span class="p">]</span>
+    <span class="n">leadtimes</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">))]</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">init_months</span><span class="p">,</span> <span class="n">leadtimes</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">get_init_months</span><span class="p">(</span><span class="n">target_month</span><span class="o">=</span><span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+([10, 9, 8], [array([2, 3, 4]), array([3, 4, 5]), array([4, 5, 6])])
+</pre></div></div>
+</div>
+<p>Leadtimes should be [[2,3,4],[3,4,5],[4,5,6]]</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># np.arange(1981, 2017)</span>
+<span class="k">def</span> <span class="nf">print_retrieve_arguments</span><span class="p">(</span><span class="n">target_months</span><span class="p">):</span>
+    <span class="n">target_months</span> <span class="o">=</span> <span class="n">target_months</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target_months</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">target_months</span><span class="p">]</span>
+    <span class="n">init_months</span><span class="p">,</span> <span class="n">leadtimes</span> <span class="o">=</span> <span class="n">get_init_months</span><span class="p">(</span><span class="n">target_months</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>  <span class="c1">##add if error still continue</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">init_months</span><span class="p">)):</span>
+            <span class="n">init_month</span> <span class="o">=</span> <span class="n">init_months</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">leadtime_months</span> <span class="o">=</span> <span class="n">leadtimes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="mi">12</span> <span class="ow">in</span> <span class="n">init_months</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">init_month</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+                    <span class="n">year</span> <span class="o">=</span> <span class="n">years</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">year</span> <span class="o">=</span> <span class="n">years</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">year</span> <span class="o">=</span> <span class="n">years</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;year = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; init_month = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">init_month</span><span class="p">)</span> <span class="o">+</span>
+                  <span class="s1">&#39; leadtime_month = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">leadtime_months</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">print_retrieve_arguments</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-1-09b72a56bb28&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print_retrieve_arguments<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;print_retrieve_arguments&#39; is not defined
+</pre></div></div>
+</div>
+<p>For our download, we loop over initialization months and years. Because we only want February precipitation, the leadtime month (forecast length) changes with the initialization month. For example, in the September initialized forecasts, we only want the leadtime month 6 = February. For August initialized this is leadtime 5, etc. Furthermore, the year the forecast is initialized is required for the download. For September - December initialized forecasts, this is the target year-1. For January
+it is the same year as the target year. For example, for the first two target years this looks like the following:</p>
+<p>Write a function that is used for the download.</p>
+<p>And start the download! In total, we request 35 years x initialization dates = 175 requests. I could try sending just 5 request of the different initialization dates for all years?</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">retrieve_single</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">init_month</span><span class="p">,</span> <span class="n">leadtimes</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">folder</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retrieve SEAS5 data from CDS.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        variable : str</span>
+<span class="sd">        year : int</span>
+<span class="sd">            str(year) is used in the function</span>
+<span class="sd">        init_month : Initialization month, integer.</span>
+<span class="sd">            For example, if the target month is February (2), initialization months are August-January (8-12,1) forecasting February</span>
+<span class="sd">        leadtime_month : The lead times you want, integer.</span>
+<span class="sd">            Use of single months is much faster. The first lead time is 1 (Leadtime 0 does not exist).</span>
+<span class="sd">            For example, for forecasting February from initialization month 1 (January), the leadtime months is 2.</span>
+<span class="sd">            For initialization month 12 (december), the lead time month is 3 (February).</span>
+<span class="sd">        folder : The path to the folder where to store the data.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Saves the files in the specified folder.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
+        <span class="s1">&#39;seasonal-monthly-single-levels&#39;</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;netcdf&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;originating_centre&#39;</span><span class="p">:</span> <span class="s1">&#39;ecmwf&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;system&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="n">variables</span><span class="p">,</span>
+            <span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;monthly_mean&#39;</span><span class="p">],</span> <span class="c1">#&#39;monthly_maximum&#39;,, &#39;monthly_standard_deviation&#39;,],</span>
+            <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">),</span>  <span class="c1">#data before 1993 is available.</span>
+            <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%.2i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">init_month</span><span class="p">,</span>
+            <span class="s1">&#39;leadtime_month&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">leadtimes</span><span class="p">],</span>
+            <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="n">area</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="n">folder</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">%.2i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">init_month</span> <span class="o">+</span> <span class="s1">&#39;.nc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">retrieve_SEAS5</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">target_months</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="n">years</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1981</span><span class="p">,</span> <span class="mi">2017</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot;Retrieve SEAS5 data from CDS.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        variables : The variables to be downloaded, str. Can also be one variable.</span>
+<span class="sd">        target_months : The month(s) of interest, int.</span>
+<span class="sd">            For example, for JJA, use [6,7,8].</span>
+<span class="sd">            Must be consecutive (e.g. no May, July, August).</span>
+<span class="sd">        area : The domain to download the data over, [North, West, South, East,].</span>
+<span class="sd">            For example, to dowload longitude 30,70 and latitude -10, 120, use [70, -11, 30, 120,]</span>
+<span class="sd">        years : Defaults to the entire hindcast years from 1981-2016</span>
+<span class="sd">        folder : The path to the folder where to store the data.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Saves the files in the specified folder.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">init_months</span><span class="p">,</span> <span class="n">leadtimes</span> <span class="o">=</span> <span class="n">get_init_months</span><span class="p">(</span><span class="n">target_months</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">years</span><span class="p">)):</span>  <span class="c1">##add if error still continue</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">init_months</span><span class="p">)):</span>
+            <span class="n">init_month</span> <span class="o">=</span> <span class="n">init_months</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">leadtime_months</span> <span class="o">=</span> <span class="n">leadtimes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="mi">12</span> <span class="ow">in</span> <span class="n">init_months</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">init_month</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+                    <span class="n">year</span> <span class="o">=</span> <span class="n">years</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">year</span> <span class="o">=</span> <span class="n">years</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">year</span> <span class="o">=</span> <span class="n">years</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">%.2i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">init_month</span> <span class="o">+</span> <span class="s1">&#39;.nc&#39;</span><span class="p">):</span>
+                <span class="n">retrieve_single</span><span class="p">(</span><span class="n">variables</span><span class="o">=</span><span class="n">variables</span><span class="p">,</span>
+                                <span class="n">year</span><span class="o">=</span><span class="n">year</span><span class="p">,</span>
+                                <span class="n">init_month</span><span class="o">=</span><span class="n">init_month</span><span class="p">,</span>
+                                <span class="n">leadtimes</span><span class="o">=</span><span class="n">leadtime_months</span><span class="p">,</span>
+                                <span class="n">area</span> <span class="o">=</span> <span class="n">area</span><span class="p">,</span>
+                                <span class="n">folder</span><span class="o">=</span><span class="n">folder</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The download sometimes fails. When redoing the request it does download. I don’t know what is causing the failure? Below I donwload the file that failed.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">retrieve_SEAS5</span><span class="p">(</span><span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2m_temperature&#39;</span><span class="p">,</span><span class="s1">&#39;2m_dewpoint_temperature&#39;</span><span class="p">],</span> <span class="n">target_months</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span>
+         <span class="n">area</span> <span class="o">=</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">120</span><span class="p">,],</span> <span class="n">folder</span> <span class="o">=</span> <span class="s1">&#39;../Siberia_example/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ERA5-data-download">
+<h1>ERA5 data download<a class="headerlink" href="#ERA5-data-download" title="Permalink to this headline">¶</a></h1>
+<p>ERA5 is downloaded using the monthly means for single levels <code class="docutils literal notranslate"><span class="pre">reanalysis-era5-single-levels-monthly-means</span></code>. The function takes the variables, target months, area and folder. The function downloads the data on a 1x1 degree grid, similar to the SEAS5 data. The default dataset is 0.25 x 0.25 (so higher resolution data is available).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
+    <span class="s1">&#39;reanalysis-era5-single-levels-monthly-means&#39;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;netcdf&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="s1">&#39;monthly_averaged_reanalysis&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;2m_dewpoint_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;2m_temperature&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;area&#39;</span>          <span class="p">:</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">120</span><span class="p">],</span> <span class="c1"># North, West, South, East.          Default: global</span>
+        <span class="s1">&#39;grid&#39;</span>          <span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>       <span class="c1"># Latitude/longitude grid.           Default: 0.25 x 0.25</span>
+        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;1979&#39;</span><span class="p">,</span> <span class="s1">&#39;1980&#39;</span><span class="p">,</span> <span class="s1">&#39;1981&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;1982&#39;</span><span class="p">,</span> <span class="s1">&#39;1983&#39;</span><span class="p">,</span> <span class="s1">&#39;1984&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;1985&#39;</span><span class="p">,</span> <span class="s1">&#39;1986&#39;</span><span class="p">,</span> <span class="s1">&#39;1987&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;1988&#39;</span><span class="p">,</span> <span class="s1">&#39;1989&#39;</span><span class="p">,</span> <span class="s1">&#39;1990&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;1991&#39;</span><span class="p">,</span> <span class="s1">&#39;1992&#39;</span><span class="p">,</span> <span class="s1">&#39;1993&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;1994&#39;</span><span class="p">,</span> <span class="s1">&#39;1995&#39;</span><span class="p">,</span> <span class="s1">&#39;1996&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;1997&#39;</span><span class="p">,</span> <span class="s1">&#39;1998&#39;</span><span class="p">,</span> <span class="s1">&#39;1999&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2000&#39;</span><span class="p">,</span> <span class="s1">&#39;2001&#39;</span><span class="p">,</span> <span class="s1">&#39;2002&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2003&#39;</span><span class="p">,</span> <span class="s1">&#39;2004&#39;</span><span class="p">,</span> <span class="s1">&#39;2005&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2006&#39;</span><span class="p">,</span> <span class="s1">&#39;2007&#39;</span><span class="p">,</span> <span class="s1">&#39;2008&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2009&#39;</span><span class="p">,</span> <span class="s1">&#39;2010&#39;</span><span class="p">,</span> <span class="s1">&#39;2011&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2012&#39;</span><span class="p">,</span> <span class="s1">&#39;2013&#39;</span><span class="p">,</span> <span class="s1">&#39;2014&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2015&#39;</span><span class="p">,</span> <span class="s1">&#39;2016&#39;</span><span class="p">,</span> <span class="s1">&#39;2017&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2018&#39;</span><span class="p">,</span> <span class="s1">&#39;2019&#39;</span><span class="p">,</span> <span class="s1">&#39;2020&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;07&#39;</span><span class="p">,</span> <span class="s1">&#39;08&#39;</span><span class="p">,</span> <span class="s1">&#39;09&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;00:00&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;../Siberia_example/ERA5_Siberia1x1.nc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+2020-08-31 10:48:48,744 INFO Welcome to the CDS
+2020-08-31 10:48:48,746 INFO Sending request to https://cds.climate.copernicus.eu/api/v2/resources/reanalysis-era5-single-levels-monthly-means
+2020-08-31 10:48:54,251 INFO Request is queued
+2020-08-31 10:48:55,267 INFO Request is running
+2020-08-31 10:53:12,220 INFO Request is completed
+2020-08-31 10:53:12,222 INFO Downloading http://136.156.133.36/cache-compute-0010/cache/data8/adaptor.mars.internal-1598867335.2534816-8321-21-66d0138a-814c-4c5b-8160-2aca9e46f31d.nc to ../Siberia_example/ERA5_Siberia1x1.nc (20.6M)
+2020-08-31 10:53:13,111 INFO Download rate 23.2M/s
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Result(content_length=21608812,content_type=application/x-netcdf,location=http://136.156.133.36/cache-compute-0010/cache/data8/adaptor.mars.internal-1598867335.2534816-8321-21-66d0138a-814c-4c5b-8160-2aca9e46f31d.nc)
+</pre></div></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Timo Kelder
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,922 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; unseen_open  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> unseen_open
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Workflow.html">UNSEEN-open</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Workflow.html#Download">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Workflow.html#Preprocess">Preprocess</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">unseen_open</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Notebooks/Untitled.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##import packages</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">matplotlib.ticker</span> <span class="k">as</span> <span class="nn">mticker</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">Sea_ice</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;https://thredds.met.no/thredds/dodsC/osisaf/met.no/reprocessed/ice/conc_v2p0_sh_agg&#39;</span><span class="p">)</span>
+<span class="n">Sea_ice</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<title>Show/Hide data repr</title>
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<title>Show/Hide attributes</title>
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+.xr-wrap {
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt, dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><div class='xr-wrap'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-4a05bb2d-7ed5-43c7-a0ec-d454e5534e95' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-4a05bb2d-7ed5-43c7-a0ec-d454e5534e95' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span>nv</span>: 2</li><li><span class='xr-has-index'>time</span>: 11801</li><li><span class='xr-has-index'>xc</span>: 432</li><li><span class='xr-has-index'>yc</span>: 432</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-1cab5273-a0d9-4901-94b2-5a9633195747' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1cab5273-a0d9-4901-94b2-5a9633195747' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>xc</span></div><div class='xr-var-dims'>(xc)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-5.388e+03 -5.362e+03 ... 5.388e+03</div><input id='attrs-08bf7d22-2ebd-412d-b447-651cfda82293' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-08bf7d22-2ebd-412d-b447-651cfda82293' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bdb20c1c-ad36-47b2-bcd0-eb3b0574fc7a' class='xr-var-data-in' type='checkbox'><label for='data-bdb20c1c-ad36-47b2-bcd0-eb3b0574fc7a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>x coordinate of projection (eastings)</dd><dt><span>standard_name :</span></dt><dd>projection_x_coordinate</dd><dt><span>units :</span></dt><dd>km</dd></dl></div><pre class='xr-var-data'>array([-5387.5, -5362.5, -5337.5, ...,  5337.5,  5362.5,  5387.5])</pre></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>yc</span></div><div class='xr-var-dims'>(yc)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>5.388e+03 5.362e+03 ... -5.388e+03</div><input id='attrs-d543030c-46f5-472f-bf0a-7955216652ad' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d543030c-46f5-472f-bf0a-7955216652ad' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f83e8bf3-a79f-4642-a964-39d2c58e302e' class='xr-var-data-in' type='checkbox'><label for='data-f83e8bf3-a79f-4642-a964-39d2c58e302e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>y coordinate of projection (northings)</dd><dt><span>units :</span></dt><dd>km</dd><dt><span>standard_name :</span></dt><dd>projection_y_coordinate</dd></dl></div><pre class='xr-var-data'>array([ 5387.5,  5362.5,  5337.5, ..., -5337.5, -5362.5, -5387.5])</pre></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1979-01-02T12:00:00 ... 2015-12-31T12:00:00</div><input id='attrs-9c35265b-67f3-4687-9e34-0e59abb5573f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9c35265b-67f3-4687-9e34-0e59abb5573f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dcc5a8bc-5a0c-4781-a917-63e3051e9c33' class='xr-var-data-in' type='checkbox'><label for='data-dcc5a8bc-5a0c-4781-a917-63e3051e9c33' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>reference time of product</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>_ChunkSizes :</span></dt><dd>524288</dd></dl></div><pre class='xr-var-data'>array([&#x27;1979-01-02T12:00:00.000000000&#x27;, &#x27;1979-01-04T12:00:00.000000000&#x27;,
+       &#x27;1979-01-06T12:00:00.000000000&#x27;, ..., &#x27;2015-12-29T12:00:00.000000000&#x27;,
+       &#x27;2015-12-30T12:00:00.000000000&#x27;, &#x27;2015-12-31T12:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(yc, xc)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-ccc8a0e6-6271-4325-88b5-cf748cc935ba' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ccc8a0e6-6271-4325-88b5-cf748cc935ba' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-82d02521-d8de-403b-8273-dc16c2e58380' class='xr-var-data-in' type='checkbox'><label for='data-82d02521-d8de-403b-8273-dc16c2e58380' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude coordinate</dd><dt><span>standard_name :</span></dt><dd>latitude</dd></dl></div><pre class='xr-var-data'>[186624 values with dtype=float32]</pre></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(yc, xc)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-dcbcae83-557a-47eb-85fa-f493f2a43669' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dcbcae83-557a-47eb-85fa-f493f2a43669' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-954241b7-bcdb-450e-8e28-63614296d82c' class='xr-var-data-in' type='checkbox'><label for='data-954241b7-bcdb-450e-8e28-63614296d82c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>longitude coordinate</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>standard_name :</span></dt><dd>longitude</dd></dl></div><pre class='xr-var-data'>[186624 values with dtype=float32]</pre></li></ul></div></li><li class='xr-section-item'><input id='section-3365a85a-e997-4475-98b6-d996f1b86e45' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3365a85a-e997-4475-98b6-d996f1b86e45' class='xr-section-summary' >Data variables: <span>(8)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>Lambert_Azimuthal_Grid</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-82994f25-9c63-476c-bc48-b5b82c2109ad' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-82994f25-9c63-476c-bc48-b5b82c2109ad' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6112cbfd-02d0-4806-86d2-0c76030b45fb' class='xr-var-data-in' type='checkbox'><label for='data-6112cbfd-02d0-4806-86d2-0c76030b45fb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping_name :</span></dt><dd>lambert_azimuthal_equal_area</dd><dt><span>longitude_of_projection_origin :</span></dt><dd>0.0</dd><dt><span>latitude_of_projection_origin :</span></dt><dd>-90.0</dd><dt><span>false_easting :</span></dt><dd>0.0</dd><dt><span>false_northing :</span></dt><dd>0.0</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd><dt><span>proj4_string :</span></dt><dd>+proj=laea +lon_0=0 +datum=WGS84 +ellps=WGS84 +lat_0=-90.0</dd></dl></div><pre class='xr-var-data'>array(-2147483647, dtype=int32)</pre></li><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(time, nv)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c20f70a8-9e86-49cd-81d6-4dfc1158c6eb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c20f70a8-9e86-49cd-81d6-4dfc1158c6eb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-98c43723-fd7b-41b7-8ca6-eea36fad9fdf' class='xr-var-data-in' type='checkbox'><label for='data-98c43723-fd7b-41b7-8ca6-eea36fad9fdf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>_ChunkSizes :</span></dt><dd>[1 2]</dd></dl></div><pre class='xr-var-data'>array([[&#x27;1979-01-02T00:00:00.000000000&#x27;, &#x27;1979-01-03T00:00:00.000000000&#x27;],
+       [&#x27;1979-01-04T00:00:00.000000000&#x27;, &#x27;1979-01-05T00:00:00.000000000&#x27;],
+       [&#x27;1979-01-06T00:00:00.000000000&#x27;, &#x27;1979-01-07T00:00:00.000000000&#x27;],
+       ...,
+       [&#x27;2015-12-29T00:00:00.000000000&#x27;, &#x27;2015-12-30T00:00:00.000000000&#x27;],
+       [&#x27;2015-12-30T00:00:00.000000000&#x27;, &#x27;2015-12-31T00:00:00.000000000&#x27;],
+       [&#x27;2015-12-31T00:00:00.000000000&#x27;, &#x27;2016-01-01T00:00:00.000000000&#x27;]],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></li><li class='xr-var-item'><div class='xr-var-name'><span>ice_conc</span></div><div class='xr-var-dims'>(time, yc, xc)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-e1196b3f-20f3-4345-b6a2-19d44b4de793' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e1196b3f-20f3-4345-b6a2-19d44b4de793' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5e83cbec-3fbf-4512-a791-246b6244ff60' class='xr-var-data-in' type='checkbox'><label for='data-5e83cbec-3fbf-4512-a791-246b6244ff60' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>fully filtered concentration of sea ice using atmospheric correction of brightness temperatures and open water filters</dd><dt><span>standard_name :</span></dt><dd>sea_ice_area_fraction</dd><dt><span>units :</span></dt><dd>%</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>10000</dd><dt><span>grid_mapping :</span></dt><dd>Lambert_Azimuthal_Grid</dd><dt><span>ancillary_variables :</span></dt><dd>total_standard_error status_flag</dd><dt><span>comment :</span></dt><dd>this field is the primary sea ice concentration estimate for this climate data record</dd><dt><span>_ChunkSizes :</span></dt><dd>[  1 432 432]</dd></dl></div><pre class='xr-var-data'>[2202349824 values with dtype=float64]</pre></li><li class='xr-var-item'><div class='xr-var-name'><span>raw_ice_conc_values</span></div><div class='xr-var-dims'>(time, yc, xc)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-f7470126-de9b-4b0b-ae61-c065890e5cc9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f7470126-de9b-4b0b-ae61-c065890e5cc9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5dfa2cd6-25e1-4c48-a2d5-8d39631aa7f4' class='xr-var-data-in' type='checkbox'><label for='data-5dfa2cd6-25e1-4c48-a2d5-8d39631aa7f4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>sea ice concentration estimates as retrieved by the algorithm, and that were edited away by the various filters</dd><dt><span>comment :</span></dt><dd>this field can be used in combination with &#x27;ice_conc&#x27; to access un-bounded normal distribution of sea ice concentration estimates corresponding to the uncertainty estimate in &#x27;total_standard_error&#x27;. It does also feature some amount of un-physical data (below 0% and above 100%).</dd><dt><span>units :</span></dt><dd>%</dd><dt><span>grid_mapping :</span></dt><dd>Lambert_Azimuthal_Grid</dd><dt><span>_ChunkSizes :</span></dt><dd>[  1 432 432]</dd></dl></div><pre class='xr-var-data'>[2202349824 values with dtype=float64]</pre></li><li class='xr-var-item'><div class='xr-var-name'><span>total_standard_error</span></div><div class='xr-var-dims'>(time, yc, xc)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-da809286-3bd8-4ad6-b107-437c03a7f64e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-da809286-3bd8-4ad6-b107-437c03a7f64e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-07245f01-c975-40ee-b392-2b7a26484377' class='xr-var-data-in' type='checkbox'><label for='data-07245f01-c975-40ee-b392-2b7a26484377' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>%</dd><dt><span>grid_mapping :</span></dt><dd>Lambert_Azimuthal_Grid</dd><dt><span>standard_name :</span></dt><dd>sea_ice_area_fraction standard_error</dd><dt><span>long_name :</span></dt><dd>total uncertainty (one standard deviation) of concentration of sea ice</dd><dt><span>_ChunkSizes :</span></dt><dd>[  1 432 432]</dd></dl></div><pre class='xr-var-data'>[2202349824 values with dtype=float64]</pre></li><li class='xr-var-item'><div class='xr-var-name'><span>smearing_standard_error</span></div><div class='xr-var-dims'>(time, yc, xc)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-bd54a242-cfc7-46a8-8ac1-59bec7cd1a44' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bd54a242-cfc7-46a8-8ac1-59bec7cd1a44' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3189a6ea-000d-43b1-b6cc-19fe4615e54c' class='xr-var-data-in' type='checkbox'><label for='data-3189a6ea-000d-43b1-b6cc-19fe4615e54c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>this is one of the two components contributing to &#x27;total_standard_error&#x27;</dd><dt><span>grid_mapping :</span></dt><dd>Lambert_Azimuthal_Grid</dd><dt><span>long_name :</span></dt><dd>smearing uncertainty (one standard deviation) of concentration of sea ice</dd><dt><span>units :</span></dt><dd>%</dd><dt><span>_ChunkSizes :</span></dt><dd>[  1 432 432]</dd></dl></div><pre class='xr-var-data'>[2202349824 values with dtype=float64]</pre></li><li class='xr-var-item'><div class='xr-var-name'><span>algorithm_standard_error</span></div><div class='xr-var-dims'>(time, yc, xc)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c608d6da-4399-43e6-9915-346aaacfe986' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c608d6da-4399-43e6-9915-346aaacfe986' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-302d0524-2a98-4c65-bf75-d7f83f89015b' class='xr-var-data-in' type='checkbox'><label for='data-302d0524-2a98-4c65-bf75-d7f83f89015b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>Lambert_Azimuthal_Grid</dd><dt><span>comment :</span></dt><dd>this is one of the two components contributing to &#x27;total_standard_error&#x27;</dd><dt><span>long_name :</span></dt><dd>algorithm uncertainty (one standard deviation) of concentration of sea ice</dd><dt><span>units :</span></dt><dd>%</dd><dt><span>_ChunkSizes :</span></dt><dd>[  1 432 432]</dd></dl></div><pre class='xr-var-data'>[2202349824 values with dtype=float64]</pre></li><li class='xr-var-item'><div class='xr-var-name'><span>status_flag</span></div><div class='xr-var-dims'>(time, yc, xc)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-91a673c2-fb21-49b9-ba6b-be7558253a26' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-91a673c2-fb21-49b9-ba6b-be7558253a26' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-426072c1-9a8a-4657-a228-485f0ff444b0' class='xr-var-data-in' type='checkbox'><label for='data-426072c1-9a8a-4657-a228-485f0ff444b0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>status flag bit array for sea ice concentration retrievals</dd><dt><span>standard_name :</span></dt><dd>sea_ice_area_fraction status_flag</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>32767</dd><dt><span>grid_mapping :</span></dt><dd>Lambert_Azimuthal_Grid</dd><dt><span>flag_masks :</span></dt><dd>[  1   2   4   8  16  32  64 128]</dd><dt><span>flag_meanings :</span></dt><dd>land lake open_water_filtered land_spill_over high_t2m spatial_interp temporal_interp max_ice_climo</dd><dt><span>flag_descriptions :</span></dt><dd>
+all bits to 0 (flag 0): Nominal retrieval by the SIC algorithm
+bit 1 (flag 1): Position is over land
+bit 2 (flag 2): Position is lake
+bit 3 (flag 4): SIC is set to zero by the open water filter
+bit 4 (flag 8): SIC value is changed for correcting land spill-over effects
+bit 5 (flag 16): Handle with caution, the 2m air temperature is high at this position, and this might be false ice
+bit 6 (flag 32): Value is the result of spatial interpolation
+bit 7 (flag 64): Value is the result of temporal interpolation
+bit 8 (flag 128): SIC is set to zero since position is outside maximum sea ice climatology.</dd><dt><span>comment :</span></dt><dd>Flag values found in the map might be combinations of those listed above. For example flag value 80 (= 2^4 + 2^6 = 16 + 64) indicates high_t2m AND temporal_interp</dd><dt><span>_ChunkSizes :</span></dt><dd>[  1 432 432]</dd></dl></div><pre class='xr-var-data'>[2202349824 values with dtype=float32]</pre></li></ul></div></li><li class='xr-section-item'><input id='section-b33a83c4-b8e7-4202-8728-20559201a9db' class='xr-section-summary-in' type='checkbox'  ><label for='section-b33a83c4-b8e7-4202-8728-20559201a9db' class='xr-section-summary' >Attributes: <span>(40)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>Sea Ice Concentration Climate Data Record from EUMETSAT OSI SAF</dd><dt><span>summary :</span></dt><dd>This climate data record of sea ice concentration is obtained from coarse resolution passive microwave satellite data over the polar regions (SMMR, SSM/I, and SSMIS). The processing chain features: 1) dynamic tuning of tie-points and algorithms,  2) correction of atmospheric noise using a Radiative Transfer Model,  3) computation of per-pixel uncertainties, and 4) an optimal hybrid sea ice concentration algorithm. This dataset was generated by the EUMETSAT Ocean and Sea Ice Satellite Application Facility (OSI SAF). The ESA CCI Programme contributed with Research and Development on the algorithms.</dd><dt><span>topiccategory :</span></dt><dd>Oceans ClimatologyMeteorologyAtmosphere</dd><dt><span>keywords :</span></dt><dd>Earth Science &gt; Cryosphere &gt; Sea Ice &gt; Sea Ice Concentration
+Earth Science &gt; Oceans &gt; Sea Ice &gt; Sea Ice Concentration
+Earth Science &gt; Climate Indicators &gt; Cryospheric Indicators &gt; Sea Ice Concentration,Geographic Region &gt; Southern Hemisphere,Vertical Location &gt; Sea Surface,NO/MET &gt; Norwegian Meteorological Institute</dd><dt><span>keywords_vocabulary :</span></dt><dd>GCMD Science Keywords</dd><dt><span>geospatial_lat_min :</span></dt><dd>-90.0</dd><dt><span>geospatial_lat_max :</span></dt><dd>-16.62393</dd><dt><span>geospatial_lon_min :</span></dt><dd>-180.0</dd><dt><span>geospatial_lon_max :</span></dt><dd>180.0</dd><dt><span>geospatial_vertical_min :</span></dt><dd>0.0</dd><dt><span>geospatial_vertical_max :</span></dt><dd>0.0</dd><dt><span>sensor :</span></dt><dd>SMMR,SSM/I,SSMIS</dd><dt><span>platform :</span></dt><dd>Nimbus-7,DMSP-F&lt;08,10,11,13,14,15&gt;,DMSP-F&lt;16,17,18&gt;</dd><dt><span>source :</span></dt><dd>FCDR of SMMR / SSMI / SSMIS Brightness Temperatures R3 (doi: 10.5676/EUM_SAF_CM/FCDR_MWI/V003),ERA-Interim fields from ECMWF (doi: 10.1002/qj.828)</dd><dt><span>time_coverage_start :</span></dt><dd>2015-12-30T00:00:00Z</dd><dt><span>time_coverage_end :</span></dt><dd>2015-12-31T00:00:00Z</dd><dt><span>time_coverage_duration :</span></dt><dd>P1D</dd><dt><span>time_coverage_resolution :</span></dt><dd>P1D</dd><dt><span>project :</span></dt><dd>OSI SAF - EUMETSAT</dd><dt><span>institution :</span></dt><dd>OSISAF - EUMETSAT</dd><dt><span>creator_name :</span></dt><dd>OSISAF - EUMETSAT</dd><dt><span>creator_type :</span></dt><dd>institution</dd><dt><span>creator_url :</span></dt><dd>http://www.osi-saf.org</dd><dt><span>creator_email :</span></dt><dd>osi-saf.helpdesk@meteo.fr</dd><dt><span>license :</span></dt><dd>All intellectual property rights of the Ocean and Sea Ice SAF products belong to EUMETSAT. The use of these products is granted to every user, free of charge. If users wish to use these products, EUMETSAT&#x27;s copyright credit must be shown by displaying the words &#x27;Copyright EUMETSAT&#x27; under each of the products shown. EUMETSAT offers no warranty and accepts no liability in respect of the Ocean and Sea Ice SAF products. EUMETSAT neither commits to nor guarantees the continuity, availability, or quality or suitability for any purpose of, the Ocean and Sea Ice SAF products.</dd><dt><span>references :</span></dt><dd>Product User Manual v1p0 (Dec 2016),Algorithm Theoretical Basis Document v1.2 (Dec 2016),http://osisaf.met.no,http://www.osi-saf.org</dd><dt><span>history :</span></dt><dd>2017-02-14T19:51:42Z creation</dd><dt><span>date_created :</span></dt><dd>2017-02-14</dd><dt><span>cdm_data_type :</span></dt><dd>Grid</dd><dt><span>spatial_resolution :</span></dt><dd>25.0 km grid spacing</dd><dt><span>algorithm :</span></dt><dd>SICCI2LF (19V, 37V, 37H)</dd><dt><span>geospatial_bounds_crs :</span></dt><dd>EPSG:6930</dd><dt><span>contributor_name :</span></dt><dd>Leif Toudal Pedersen, Gorm Dybkjaer, Steinar Eastwood, Mari Anne Killie, John Lavelle, Thomas Lavergne, Helge Pfeiffer, Atle Soerensen, Rasmus Tonboe</dd><dt><span>contributor_role :</span></dt><dd>PrincipalInvestigator,author,author,author,author,author,author,author,author</dd><dt><span>tracking_id :</span></dt><dd>7c3ce3b2-7ea0-48ca-9fb5-c81e322eb95d</dd><dt><span>naming_authority :</span></dt><dd>int.eumetsat</dd><dt><span>Conventions :</span></dt><dd>CF-1.6 ACDD-1.3</dd><dt><span>standard_name_vocabulary :</span></dt><dd>CF Standard Name Table (v36, 21 September 2016)</dd><dt><span>id :</span></dt><dd>10.15770/EUM_SAF_OSI_0008</dd><dt><span>product_version :</span></dt><dd>2.0</dd></dl></div></li></ul></div></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">Sea_ice</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;2010&#39;</span><span class="p">,</span><span class="s1">&#39;1979-01-02T12:00:00.000000000&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.collections.QuadMesh at 0x7f57a4eac550&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/Notebooks_Untitled_2_1.png" src="../_images/Notebooks_Untitled_2_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">Sea_ice_Elise</span> <span class="o">=</span> <span class="n">Sea_ice</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;2010&#39;</span><span class="p">,</span><span class="s1">&#39;2016&#39;</span><span class="p">))</span>
+<span class="n">Sea_ice_Elise</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="s1">&#39;../../UNSEEN-trends_play/Elise_sea_ice.nc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mapproj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">LambertConformal</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span>
+                                <span class="n">central_latitude</span><span class="o">=</span><span class="mf">65.0</span><span class="p">,</span>
+                                <span class="n">false_easting</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                                <span class="n">false_northing</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                                <span class="n">secant_latitudes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                <span class="n">standard_parallels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                <span class="n">globe</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                <span class="n">cutoff</span><span class="o">=-</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">mapproj</span><span class="p">)</span>
+
+<span class="n">SEAS5_q200</span><span class="p">[</span><span class="s1">&#39;P_200&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+<span class="c1">#                          robust=True,</span>
+                         <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">,</span>
+                         <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;50m&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">BORDERS</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+
+<span class="n">gl</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+                  <span class="n">draw_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span>
+                  <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                  <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">ylocator</span> <span class="o">=</span> <span class="n">mticker</span><span class="o">.</span><span class="n">FixedLocator</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">65</span><span class="p">])</span>
+
+<span class="c1"># ax.set_title(&#39;February 2020&#39;)</span>
+
+
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Timo Kelder
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
