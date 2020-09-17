@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Retrieve &mdash; unseen_open  documentation</title>
+  <title>Retrieve &mdash; unseen_open  documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Preprocess" href="../2.Preprocess/2.1Merge.html" />
-    <link rel="prev" title="UNSEEN-open" href="../Workflow.html" /> 
+    <link rel="next" title="Preprocess" href="../2.Preprocess/2.Preprocess.html" />
+    <link rel="prev" title="Examples" href="../Examples.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,10 +89,11 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Whats-unseen.html">What is UNSEEN?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Workflow.html">UNSEEN-open</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Examples.html">Examples</a></li>
 </ul>
 <p class="caption"><span class="caption-text">The workflow:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Retrieve</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Retrieve</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Import-packages">Import packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#First-download">First download</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Use-xarray-to-visualize-the-netcdf-file">Use xarray to visualize the netcdf file</a></li>
@@ -102,9 +103,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.1Merge.html">Preprocess</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.2Mask.html">Masking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.3Upscale.html">Upscaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.Preprocess.html">Preprocess</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3.Evaluate/3.Evaluate.html">Evaluate</a></li>
 </ul>
 
@@ -152,7 +151,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>1. Retrieve</li>
+      <li>Retrieve</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -426,8 +425,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="1.-Retrieve">
-<h1>1. Retrieve<a class="headerlink" href="#1.-Retrieve" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Retrieve">
+<h1>Retrieve<a class="headerlink" href="#Retrieve" title="Permalink to this headline">¶</a></h1>
 <p>We want to download the monthly precipitation for February. I use the automatically generated request from the CDS server. There are two datasets we can use to download the data: <a class="reference external" href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/seasonal-original-single-levels?tab=form">Seasonal forecast daily data on single levels</a> and <a class="reference external" href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/seasonal-monthly-single-levels?tab=form">Seasonal forecast monthly statistics on single levels</a>. We will use the
 latter for easy downloading of the monthly values. If we want to go to higher temporal resolution, such as daily extremes, we will have to consult the other dataset.</p>
 <p>To get started with CDS, you have to register at <a class="reference external" href="https://cds.climate.copernicus.eu/">https://cds.climate.copernicus.eu/</a> and copy your UID and API key from <a class="reference external" href="https://cds.climate.copernicus.eu/user">https://cds.climate.copernicus.eu/user</a> in the <code class="docutils literal notranslate"><span class="pre">~/.cdsapirc</span></code> file in the home directory of your user. See the <a class="reference external" href="https://nbviewer.jupyter.org/github/esowc/ml_flood/blob/master/notebooks/1_data_download_analysis_visualization/1.01_cdsapi_setup.ipynb">ml-flood project</a> for more details</p>
@@ -1288,10 +1287,10 @@ During handling of the above exception, another exception occurred:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../2.Preprocess/2.1Merge.html" class="btn btn-neutral float-right" title="Preprocess" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../2.Preprocess/2.Preprocess.html" class="btn btn-neutral float-right" title="Preprocess" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../Workflow.html" class="btn btn-neutral float-left" title="UNSEEN-open" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../Examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

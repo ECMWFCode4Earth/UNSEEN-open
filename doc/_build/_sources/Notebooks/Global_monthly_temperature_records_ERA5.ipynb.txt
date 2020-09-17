@@ -12,7 +12,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "![Global Temperature records 2020](../graphs/Global_Animation_01.gif \"Records2020\")"
+    "![Global Temperature records 2020](../../graphs/Global_Animation_01.gif \"Records2020\")"
    ]
   },
   {
@@ -2146,7 +2146,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "![Global Temperature records 2020](../graphs/Global_Animation_01.gif \"Records2020\")"
+    "![Global Temperature records 2020](../../graphs/Global_Animation_01.gif \"Records2020\")"
    ]
   },
   {
@@ -2161,7 +2161,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "![Siberian Temperature records 2020](../graphs/Siberia_Animation_01.gif \"Records2020\")"
+    "![Siberian Temperature records 2020](../../graphs/Siberia_Animation_01.gif \"Records2020\")"
    ]
   },
   {

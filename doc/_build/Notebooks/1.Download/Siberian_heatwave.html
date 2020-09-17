@@ -87,13 +87,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Whats-unseen.html">What is UNSEEN?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Workflow.html">UNSEEN-open</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Examples.html">Examples</a></li>
 </ul>
 <p class="caption"><span class="caption-text">The workflow:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="1.Retrieve.html">1. Retrieve</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.1Merge.html">Preprocess</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.2Mask.html">Masking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.3Upscale.html">Upscaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.Retrieve.html">Retrieve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.Preprocess/2.Preprocess.html">Preprocess</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3.Evaluate/3.Evaluate.html">Evaluate</a></li>
 </ul>
 
@@ -496,7 +495,7 @@ div.rendered_html tbody tr:hover {
 <p>We will be using the SEAS5 hindcast, which is a dataset running from 1981-2016. The hindcast is initialized every month with 25 ensemble members and the forecast run for 6 months, indicated by blue horizontal bars below. February is forecasted by 6 initialization months (September-February). We discard the first month of the forecast because of dependence between the forecasts, explained in the evaluation section and are left with 5 initialization months (Sep-Jan) and 25 ensemble members
 forecasting february precipitation each year, totalling to an increase of 125 times the observed length.</p>
 <p>For a summary of all available C3S seasonal hindcasts, their initialization months and more specifics, please see <a class="reference external" href="https://confluence.ecmwf.int/display/CKB/C3S+Seasonal+Forecasts">ECMWF page</a> and the <a class="reference external" href="https://doi.org/10.5194/gmd-12-1087-2019">SEAS5 paper</a>.</p>
-<p><img alt="title" src="Notebooks/1.Download/../../graphs/Data_illustration.png" /></p>
+<p><img alt="title" src="../../_images/Data_illustration.png" /></p>
 <p>The first download example above downloaded all 25 ensemble members for the forecast initialized in January (the bottom bar). We should repeat this over the other initialization month and over all years (1981-2016).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:

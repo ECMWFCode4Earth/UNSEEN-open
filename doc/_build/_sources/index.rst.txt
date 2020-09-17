@@ -12,15 +12,18 @@ Welcome to unseen_open's documentation!
    
    Whats-unseen
    Notebooks/Workflow
+   Notebooks/Examples
    
 .. toctree::
    :maxdepth: 1
    :caption: The workflow:
    
    Notebooks/1.Download/1.Retrieve
-   Notebooks/2.Preprocess/2.1Merge
-   Notebooks/2.Preprocess/2.2Mask
-   Notebooks/2.Preprocess/2.3Upscale
+   Notebooks/2.Preprocess/2.Preprocess
    Notebooks/3.Evaluate/3.Evaluate
    
 
+.. 
+   Notebooks/2.Preprocess/2.1Merge
+   Notebooks/2.Preprocess/2.2Mask
+   Notebooks/2.Preprocess/2.3Upscale
