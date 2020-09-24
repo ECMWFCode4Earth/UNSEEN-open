@@ -22,7 +22,14 @@ Welcome to unseen_open's documentation!
    Notebooks/2.Preprocess/2.Preprocess
    Notebooks/3.Evaluate/3.Evaluate
    
-
+.. toctree::
+   :maxdepth: 1
+   :caption: Extra:
+   
+   Notebooks/Global_monthly_temperature_records_ERA5
+   Notebooks/2020_contrasting_weather
+   Notebooks/2.Preprocess/2.3Upscale
+   
 .. 
    Notebooks/2.Preprocess/2.1Merge
    Notebooks/2.Preprocess/2.2Mask
