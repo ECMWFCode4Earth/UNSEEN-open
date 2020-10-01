@@ -1,6 +1,5 @@
 name: unseen
 channels:
-  - defaults
   - conda-forge
 dependencies:
   - _r-mutex=1.0.1=anacondar_1
