@@ -1,0 +1,9 @@
+dependencies:
+  -   esmpy=7.1.0
+  -   xesmf=0.2.1
+  -   regionmask
+  -   cartopy
+  -   matplotlib
+  -   xarray
+  -   numpy
+  -   netcdf4
