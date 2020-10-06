@@ -9,7 +9,7 @@ Welcome to unseen_open's documentation!
 An open, reproducible and transferable workflow to assess and
 anticipate climate extremes beyond the observed record.
 
-**UNSEEN-open** is an open source project usign the *global* SEAS5 
+**UNSEEN-open** is an open source project using the *global* SEAS5 
 and ERA5 datasets. It makes evaluation of model simulations and extreme value analysis
 easy in order to **anticipate climate extremes** beyond the observed record.
 The project is developed as part of the ECMWF summer of weather code 2020 (esowc_),
