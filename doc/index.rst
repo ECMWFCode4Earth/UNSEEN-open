@@ -38,7 +38,7 @@ We hope this approach may see many applications across a range of scientific fie
 .. _ggplot: https://ggplot2.tidyverse.org/index.html
 .. _extRemes: https://cran.r-project.org/web/packages/extRemes/index.html
 .. _UNSEEN: https://climate.copernicus.eu/
-.. _NPJ Climate and Atmospheric Science: https://doi.org/10.31223/osf.io/hyxeq
+.. _NPJ Climate and Atmospheric Science paper: https://doi.org/10.31223/osf.io/hyxeq
 
 .. toctree::
    :maxdepth: 2
@@ -75,5 +75,5 @@ __ https://opensource.org/licenses/MIT
 Citation
 -------
 
-If any code or example data is used, please cite this project.
+When using the code or example data, please cite this project.
 If any questions may arise, please don't hesitate to get in touch t.kelder@lboro.ac.uk.
