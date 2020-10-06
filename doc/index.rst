@@ -6,40 +6,39 @@
 Welcome to unseen_open's documentation!
 =======================================
 
-**UNSEEN-open** is an open source project that makes retrieval of SEAS5 
-and ERA5 data, evaluation of model simulations and extreme value analysis
+An open, reproducible and transferable workflow to assess and
+anticipate climate extremes beyond the observed record.
+
+**UNSEEN-open** is an open source project usign the *global* SEAS5 
+and ERA5 datasets. It makes evaluation of model simulations and extreme value analysis
 easy in order to **anticipate climate extremes** beyond the observed record.
-
-UNSEEN-open relies heavily on xarray_ for data preprocessing and
-uses ggplot_ and extRemes_ for the extreme value analysis. The extreme
-value utilities are being developed into an UNSEEN_ Rpackage. 
-
 The project is developed as part of the ECMWF summer of weather code 2020 (esowc_),
 which is funded by Copernicus_.
 
-We believe UNSEEN-open might 1) help estimate design values, especially relevant for data scarce regions; 2) improve risk estimation of natural hazards by coupling UNSEEN to impact models; 3) detect trends in rare climate extremes, including variables other than precipitation; and 4) increase our physical understanding of the drivers of non-stationarity of climate extremes, through the possible attribution of detected trends.
+UNSEEN-open relies on xarray_ for data preprocessing and
+uses ggplot_ and extRemes_ for the extreme value analysis. The extreme
+value utilities are being developed into an UNSEEN_ Rpackage. 
+
+
+Applications
+-------
+In our recent `NPJ Climate and Atmospheric Science paper`_ we outline four potential
+applications where we believe UNSEEN might prove to be useful: 
+
+1. Help estimate design values, especially relevant for data scarce regions
+2. Improve risk estimation of natural hazards by coupling UNSEEN to impact models
+3. Detect trends in rare climate extremes
+4. Increase our physical understanding of the drivers of (non-stationarity of) climate extremes
 
 We hope this approach may see many applications across a range of scientific fields!
 
-Citation
--------
-
-If any code or example data is used, please cite this project.
-
-All code and example data are available under the open source `MIT License`__.
-
-__ https://opensource.org/licenses/MIT
-
-If any questions may arise, please don't hesitate to get in touch t.kelder@lboro.ac.uk.
-
-
-
-.. _xarray: https://esowc.ecmwf.int/
-.. _ggplot: https://climate.copernicus.eu/
-.. _extRemes: https://esowc.ecmwf.int/
-.. _UNSEEN: https://climate.copernicus.eu/
 .. _esowc: https://esowc.ecmwf.int/
 .. _Copernicus: https://climate.copernicus.eu/
+.. _xarray: http://xarray.pydata.org/en/stable/index.html
+.. _ggplot: https://ggplot2.tidyverse.org/index.html
+.. _extRemes: https://cran.r-project.org/web/packages/extRemes/index.html
+.. _UNSEEN: https://climate.copernicus.eu/
+.. _`NPJ Climate and Atmospheric Science`: https://doi.org/10.31223/osf.io/hyxeq
 
 .. toctree::
    :maxdepth: 2
@@ -72,3 +71,9 @@ License
 All code and example data are available under the open source `MIT License`__.
 
 __ https://opensource.org/licenses/MIT
+
+Citation
+-------
+
+If any code or example data is used, please cite this project.
+If any questions may arise, please don't hesitate to get in touch t.kelder@lboro.ac.uk.
