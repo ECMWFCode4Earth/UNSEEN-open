@@ -63,7 +63,7 @@ We hope this approach may see many applications across a range of scientific fie
    Notebooks/Global_monthly_temperature_records_ERA5
    Notebooks/2020_contrasting_weather
    Notebooks/2.Preprocess/2.3Upscale
-   generated/src
+..   generated/src
    
 License
 -------
