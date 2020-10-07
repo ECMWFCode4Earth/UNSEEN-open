@@ -31,6 +31,7 @@ author = 'Timo Kelder'
 # ones.
 extensions = [
     'nbsphinx',
+    'sphinx.ext.autodoc',
     'sphinx.ext.mathjax',
     'sphinx_rtd_theme',
 ]
