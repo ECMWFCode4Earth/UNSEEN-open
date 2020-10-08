@@ -7,4 +7,5 @@ In this project, UNSEEN-open is applied to assess two extreme events in 2020: Fe
     :maxdepth: 1
 
     examples/Siberian_Heatwave
+    examples/California_Fires
     examples/UK_Precipitation
