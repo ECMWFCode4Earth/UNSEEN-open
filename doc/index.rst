@@ -61,6 +61,7 @@ We hope this approach may see many applications across a range of scientific fie
    :caption: Extra:
    
    Notebooks/Global_monthly_temperature_records_ERA5
+   Notebooks/California_august_temperature_anomaly
    Notebooks/2020_contrasting_weather
    Notebooks/2.Preprocess/2.3Upscale
 ..   generated/src
