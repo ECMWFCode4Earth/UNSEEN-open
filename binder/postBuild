@@ -4,4 +4,6 @@
 jupyter labextension install @jupyterlab/toc
 
 # Remove output from Jupyter notebooks
-jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace doc/Notebooks/Examples.ipynb
+jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace doc/Notebooks/examples/Siberian_Heatwave.ipynb
+jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace doc/Notebooks/examples/California_Fires.ipynb
+jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace doc/Notebooks/examples/UK_Precipitation.ipynb
