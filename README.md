@@ -2,52 +2,50 @@
 
 **An open, reproducible and transferable workflow to assess and anticipate climate extremes beyond the observed record**
 
+UNSEEN-open is an open source project using the *global* SEAS5 and ERA5 datasets. It makes *evaluation of model simulations* and *extreme value analysis* easy in order to anticipate climate extremes beyond the observed record. The project is developed as part of the ECMWF summer of weather code 2020 ([esowc](https://esowc.ecmwf.int/)), which is funded by [Copernicus](https://climate.copernicus.eu/).
+
 Timo Kelder\*
 
-Advisors: Louise Slater, Julia Wagemann, Rob Wilby, Tim Marjoribanks, Christel Prudhomme
+Advisors: Julia Wagemann, Louise Slater, Rob Wilby, Tim Marjoribanks, Christel Prudhomme
 
 Email\*: [t.kelder@lboro.ac.uk](mailto:t.kelder@lboro.ac.uk) GitHub\*: [https://github.com/timokelder](https://github.com/timokelder)
 
-Best rendering on [GitHub Pages](https://esowc.github.io/UNSEEN-open/)
+## Documentation
+Learn more about UNSEEN-open on our readthedocs website: https://unseen-open.readthedocs.io
 
 ## What is UNSEEN?
 The UNprecedented Simulated Extreme ENsemble (UNSEEN, [Thompson et al., 2017](https://www.nature.com/articles/s41467-017-00275-3)) approach is an increasingly popular method that exploits seasonal prediction systems to  **assess and anticipate climate extremes beyond the observed record**. The approach uses pooled forecasts as plausible alternate realities. Instead of the &#39;single realization&#39; of reality, pooled forecasts can be exploited to better assess the likelihood of infrequent events, which only have a limited chance of occurring in observed records. This method has for example been used to improve design levels of storm-surges in the river Rhine and to anticipate and understand heatwaves in China.
 
-A limitation of the UNSEEN method is the big data crunching it requires and the limited accessibility of some of the forecasting systems used. Recently, we applied this method to SEAS5 for the first time, with promising results for extreme precipitation over Norway and Svalbard (submitted to [_NPJ_ _Climate and Atmospheric Science_](https://doi.org/10.31223/osf.io/hyxeq)). SEAS5 is a good dataset for the UNSEEN approach because it is freely available and has a high resolution and a large ensemble compared to global climate models. To make this approach more accessible, we propose to make an open, reproducible and transferable workflow for the UNSEEN method using the open access SEAS5 dataset on the CDS.
-
-SEAS5 is a huge dataset - for example, forecasts of just one variable (e.g. precipitation only surface level) on a daily and global scale can total to a few terabytes. The data size drastically reduces by using a spatial average monthly timeseries, and hence, we will start this project with a case study of spatial and monthly averaged precipitation. After successful application, there is room for expansion of the work.
-
-## February 2020 case study
-February 2020 was the wettest February on record in the UK (since 1862), [according to the Met Office](https://www.metoffice.gov.uk/about-us/press-office/news/weather-and-climate/2020/2020-winter-february-stats). The UK faced three official storms during February, and this exceptional phenomena attracted media attention, such as an article from the [BBC](https://www.bbc.com/news/science-environment-51713172) on increased climate concerns among the population. A [Carbon Brief post](https://www.carbonbrief.org/met-office-why-the-uk-saw-record-breaking-rainfall-in-february-2020) explained why the UK saw such record-breaking rainfall and put this rare event into perspective, citing, amongst other approaches, the UNSEEN method. The UNSEEN study by [Thompson et al., 2017](https://www.nature.com/articles/s41467-017-00275-3) assessed monthly precipitation over the UK. They showed that the monthly precipitation records for south east England have a 7% chance of being exceeded in at least one month in any given winter. They did not use SEAS5 but the Met Office model ensemble. This work was taken up in the [National Flood Resilience Review (2016)](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/551137/national-flood-resilience-review.pdf), showing the high relevance and applicability of the method. Here, the aim is to  **build an open, reproducible and transferable workflow** , that will be tested for this well-studied region of the world and hopefully can be transferred to other regions and climate variables of interest.
-
-## The Workflow
-In this project, we will 1. [download and preprocess the data](Data_mining.md) 2. [evaluate the extremes](Evaluation.md) and 3. illustrate applications.
-
-Or jump straight into the [workflow for February 2020 precipitation](https://nbviewer.jupyter.org/github/esowc/UNSEEN-open/tree/master/Notebooks/Workflow.ipynb). 
-
-## Todo / questions
-
-1. Download
-- [x] Set up CDS
-- [x] Retrieve SEAS5 and EOBS 
-- [x] Preprocess SEAS5 and EOBS
-- [x] Mask: Extract country-averaged precipitation
-- [ ] Package: Automated download and preprocess
-
-2. Evaluate
-- [x] Ensemble member independence
-- [x] Model stability
-- [x] Model fidelity
-- [ ] Write R package
-    - [ ] Separate Repo? 
-    
-### Potential research topics
-- [ ] Test robustness of the method to variable / regions / seasons
-    - [ ] Redo analysis for The Siberian heatwave (Jan - May, 65-120E, 50-70N)
-    - [ ] Redo UK analysis for the river Rhine (or The Netherlands) using winter total precipitation (or seasonal max daily) instead of February precipitation  
-- [ ] Provide example on the CDS toolbox
-- [ ] Spatial, grid-based analysis instead of area averaged time-series  
-- [ ] EOBS UK 2020 is not the highest. How does EOBS compare to MetOffice data? 
-
-### Issues
-- [ ] EOBS from CDS temporally unavailable
+UNSEEN requires big data crunching and accessing the forecasting systems might be complicated for unfamiliar users. To make this approach more accessible, we build an open, reproducible and transferable workflow for the UNSEEN method using the open access Copernicus SEAS5 dataset. Recently, we applied this method to SEAS5 with promising results for extreme precipitation over Norway and Svalbard (accepted by [_NPJ_ _Climate and Atmospheric Science_](https://doi.org/10.31223/osf.io/hyxeq)). 
+# 
+# ## The Workflow
+# In this project, we will 1. [download and preprocess the data](Data_mining.md) 2. [evaluate the extremes](Evaluation.md) and 3. illustrate applications.
+# 
+# Or jump straight into the [workflow for February 2020 precipitation](https://nbviewer.jupyter.org/github/esowc/UNSEEN-open/tree/master/Notebooks/Workflow.ipynb). 
+# 
+# ## Todo / questions
+# 
+# 1. Download
+# - [x] Set up CDS
+# - [x] Retrieve SEAS5 and EOBS 
+# - [x] Preprocess SEAS5 and EOBS
+# - [x] Mask: Extract country-averaged precipitation
+# - [ ] Package: Automated download and preprocess
+# 
+# 2. Evaluate
+# - [x] Ensemble member independence
+# - [x] Model stability
+# - [x] Model fidelity
+# - [ ] Write R package
+#     - [ ] Separate Repo? 
+#     
+# ### Potential research topics
+# - [ ] Test robustness of the method to variable / regions / seasons
+#     - [ ] Redo analysis for The Siberian heatwave (Jan - May, 65-120E, 50-70N)
+#     - [ ] Redo UK analysis for the river Rhine (or The Netherlands) using winter total precipitation (or seasonal max daily) instead of February precipitation  
+# - [ ] Provide example on the CDS toolbox
+# - [ ] Spatial, grid-based analysis instead of area averaged time-series  
+# - [ ] EOBS UK 2020 is not the highest. How does EOBS compare to MetOffice data? 
+# 
+# ### Issues
+# - [ ] EOBS from CDS temporally unavailable
