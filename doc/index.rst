@@ -19,6 +19,7 @@ UNSEEN-open relies on xarray_ for data preprocessing and
 uses ggplot_ and extRemes_ for the extreme value analysis. The extreme
 value utilities are being developed into an UNSEEN_ Rpackage. 
 
+Read all about UNSEEN-open in our preprint_!
 
 Applications
 -------
@@ -38,7 +39,8 @@ We hope this approach may see many applications across a range of scientific fie
 .. _ggplot: https://ggplot2.tidyverse.org/index.html
 .. _extRemes: https://cran.r-project.org/web/packages/extRemes/index.html
 .. _UNSEEN: https://climate.copernicus.eu/
-.. _NPJ Climate and Atmospheric Science paper: https://doi.org/10.31223/osf.io/hyxeq
+.. _preprint: https://doi.org/10.31223/X5T04C
+.. _NPJ Climate and Atmospheric Science paper: https://doi.org/10.1038/s41612-020-00149-4
 
 .. toctree::
    :maxdepth: 2
