@@ -48,6 +48,7 @@ We hope this approach may see many applications across a range of scientific fie
    
    Whats-unseen
    Notebooks/Workflow
+   Notebooks/Installation
    Notebooks/Examples
    
 .. toctree::
