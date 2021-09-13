@@ -47,8 +47,7 @@ We hope this approach may see many applications across a range of scientific fie
    :caption: Introduction:
    
    Whats-unseen
-   Notebooks/Workflow
-   Notebooks/Installation
+   Installation
    Notebooks/Examples
    
 .. toctree::
