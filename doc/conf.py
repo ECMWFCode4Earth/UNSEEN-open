@@ -20,7 +20,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'unseen_open'
-copyright = '2020, Timo Kelder'
+copyright = '2021, Timo Kelder'
 author = 'Timo Kelder'
 
 
