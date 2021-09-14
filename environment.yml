@@ -1,0 +1,9 @@
+name: basic_analysis
+dependencies:
+  - numpy
+  - pandas
+  - xarray
+  - cartopy 
+  - cdsapi
+  - matplotlib
+  - netcdf4
