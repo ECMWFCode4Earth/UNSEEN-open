@@ -1,0 +1,13 @@
+name: basic_analysis
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  -   cartopy
+  -   matplotlib
+  -   xarray
+  -   numpy
+  -   netcdf4
+  -   ipykernel
+  -   cdsapi 
+
