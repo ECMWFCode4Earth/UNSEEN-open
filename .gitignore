@@ -84,6 +84,9 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
+# Data folder
+/Users/andreakuijt/Documents/Github/UNSEEN-open/doc/Notebooks/UK_example
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
