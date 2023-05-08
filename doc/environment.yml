@@ -1,0 +1,19 @@
+name: UNSEEN-venv
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - cartopy
+  - proj
+  - ipykernel
+  - nbsphinx
+  - sphinx
+  - sphinx_rtd_theme
+  - xarray
+  - numpy
+  - matplotlib
+  - bottleneck
+  - shapely
+  - netcdf4 
+  - h5netcdf
+  - pandas
