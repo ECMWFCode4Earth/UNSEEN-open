@@ -8,6 +8,9 @@
 # Session Data files
 .RData
 
+# Data folder
+/Users/andreakuijt/Documents/Github/UNSEEN-open/doc/Notebooks/UK_example/*
+
 # User-specific files
 .Ruserdata
 
@@ -83,9 +86,6 @@ MANIFEST
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
-
-# Data folder
-/Users/andreakuijt/Documents/Github/UNSEEN-open/doc/Notebooks/UK_example
 
 # Unit test / coverage reports
 htmlcov/
