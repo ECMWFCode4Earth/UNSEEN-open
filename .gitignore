@@ -8,6 +8,10 @@
 # Session Data files
 .RData
 
+# Data folder
+/Users/andreakuijt/Documents/Github/UNSEEN-open/doc/Notebooks/UK_example/*
+*.nc
+
 # User-specific files
 .Ruserdata
 
